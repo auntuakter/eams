@@ -29,9 +29,17 @@
       <td>Pending</td>
       <td>bhjfgdvbnxji hjchhggux xkjua . </td>
     </tr>
+
+    <tr>
+      <th scope="row">2</th>
+      <td>Emergency leave</td>
+      <td>5</td>
+      <td>Pending</td>
+      <td>bhjfgdvbnxji hjchhggux xkjua . </td>
+    </tr>
  
   </tbody>
 </table>
-
+<a href="{{route('leave_type_add')}}" class="btn btn-secondary" type="button">Add New Leave Type</a>
 
 @endsection

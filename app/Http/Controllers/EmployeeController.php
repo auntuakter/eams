@@ -7,12 +7,29 @@ use App\Models\Employee;
 
 class EmployeeController extends Controller
 {
-    public function Employee(){
+    public function Employee()
+
+    //search
+    {
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $employees = Employee::where('name','LIKE','%'.$key.'%')
+                // ->orWhere('department','LIKE','%'.$key.'%')
+                ->get();
+            return view('pages.employee',compact('employees','key'));
+        }
         $employees = Employee::all();
-        // dd($employees);
-        return view('pages.employee',compact('employees'));
-      
+        return view('pages.employee',compact('employees','key'));
     }
+
+    
+    // {
+    //     $employees = Employee::all();
+    //     // dd($employees);
+    //     return view('pages.employee',compact('employees'));
+      
+    // }
 
     public function employee_add(){
         
@@ -69,7 +86,7 @@ class EmployeeController extends Controller
              'gender'=>$request->gender,
              'joined_on'=>$request->joined_on,
              'contact_no'=>$request->contact_no,
-             'image'=> ''
+             'image'=>$image_name,
              ]);
         
         return redirect()->back()->with('success','Profile Created Successfully.');
@@ -90,10 +107,61 @@ class EmployeeController extends Controller
                 }
      }
 
+     //delete
+
      public function delete($employee_id)
     {
        employee::find($employee_id)->delete();
        return redirect()->back()->with('success','Employee Deleted.');
     }
+
+
+    //edit
+
+    public function edit($id)
+    {
+        
+        $employee=Employee::find($id);
+
+        return view('pages.employee_update',compact('employee'));
+
+    }
+
+
+
+    //update
+    public function update($id,Request $request)
+
+
+    {
+        // dd($id, request()->all());
+        $employee=Employee::find($id);
+
+        $image_name=$employee->image;
+        //              step 1: check image exist in this request.
+                         if($request->hasFile('image'))
+                         {
+                             // step 2: generate file name
+                             $image_name=date('Ymdhis') .'.'. $request->file('image')->getClientOriginalExtension();
+        
+                             //step 3 : store into project directory
+        
+                             $request->file('image')->storeAs('/employees',$image_name);
+        
+                         }
+        $employee->update([
+            'name'=>$request->name,
+             'email'=>$request->email,
+             'address'=>$request->address,
+             'department'=>$request->department,
+             'gender'=>$request->gender,
+             'joined_on'=>$request->joined_on,
+             'contact_no'=>$request->contact_no,
+             'image'=>$image_name,
+            
+        ]);
+        return redirect()->back();
+    }
+    
     
 }

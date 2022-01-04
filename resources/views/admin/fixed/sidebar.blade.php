@@ -66,7 +66,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('leave_type')}}">
                 <i class="ni ni-pin-3 text-primary"></i>
-                <span class="nav-link-text">Leave_type</span>
+                <span class="nav-link-text">Leave Type</span>
               </a>
             </li>
 

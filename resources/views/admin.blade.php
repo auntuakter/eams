@@ -1,128 +1,135 @@
-<!-- <link rel="stylesheet" href="/css/argon.min.css?v=1.2.0" type="text/css">
-
-<form >
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form> -->
 
 
 <style>
-    /* Bordered form */
-form {
-  width:500px;
-  background-color:#F4C3E0;
-  border: 3px solid #f1f1f1;
+  @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
 }
-
-/* Full-width inputs */
-input[type=text], input[type=password] {
-  width: 70%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 70%;
-}
-
-/* Add a hover effect for buttons */
-button:hover {
-  opacity: 0.8;
-}
-
-/* Extra style for the cancel button (red) */
-/* .cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-} */
-
-/* Center the avatar image inside this container */
-/* .imgcontainer {
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
   text-align: center;
-  margin: 24px 0 12px 0;
-} */
-
-/* Avatar image */
-/* img.avatar {
-  width: 40%;
-  border-radius: 50%;
-} */
-
-/* Add padding to containers */
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
 .container {
-    width: 100%;
-  padding: 16px;
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
 }
-
-/* The "Forgot password" text */
-span.psw {
-  float: right;
-  padding-top: 16px;
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
 }
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 50px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
+.container .info {
+  margin: 50px auto;
+  text-align: center;
 }
-    </style>
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.container .info span .fa {
+  color: #EF3B3A;
+}
+body {
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  background: -moz-linear-gradient(right, #76b852, #8DC26F);
+  background: -o-linear-gradient(right, #76b852, #8DC26F);
+  background: linear-gradient(to left, #76b852, #8DC26F);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+</style>
 
-<form action="{{route('admin.store')}}" method="post">
+ <form action="{{route('admin.store')}}" method="post">
   @csrf
-  <!-- <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
-  </div> -->
-
-  <div class="container">
-    <label for="uname"><b>Email</b></label>
+ <div class="login-page">
+  <div class="form">
+  
+     <form class="login-form">
+     <label for="uname"><b>Email</b></label>
     <input type="text" placeholder="Enter Username" name="email" required>
-    <br>
+   
 
-    <label for="psw"><b>Password</b></label>
+      <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" required>
-    <br>
-
-    <button type="submit">Submit</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+   
+      <button type="submit">Submit</button>
+      
+    </form>
   </div>
-
-  <!-- <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div> -->
+</div>
 </form>
 
+ 
+<script>
 
+$('.message a').click(function(){
+   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+</script>
 
 
 

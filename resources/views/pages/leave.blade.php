@@ -8,8 +8,10 @@
   <thead>
     <tr>
       <th scope="col">Id</th>
-      <th scope="col">Employee_name</th>
-      <th scope="col">Department-name</th>
+      <!-- <th scope="col">Employee_name</th>
+      <th scope="col">Department-name</th> -->
+      
+      <th scope="col">Name</th>
       <th scope="col">Leave-type</th>
       <th scope="col">Description</th>
       <th scope="col">From</th>
@@ -26,8 +28,9 @@
     <tr>
 
 <th scope ="row">{{$key+1}}</th>
-<td>{{$leave->employee_name}}</td>
-<td>{{$leave->department_name}}</td>
+<!-- <td>{{$leave->employee_name}}</td>
+<td>{{$leave->department_name}}</td> -->
+<td>{{$leave->user->name}}</td>
 <td>{{$leave->leave_type}}</td>
 <td>{{$leave->description}}</td>
 <td>{{$leave->from}}</td>

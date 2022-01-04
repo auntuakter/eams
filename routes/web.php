@@ -25,11 +25,17 @@ use App\Http\Controllers\Auth;
 |
 */
 
+Route::get('/user', function () {
+    return view('master');
+})->name('user.view');
+
 Route::get('/login', function () {
     return view('admin');
 })->name('admin.login');
 
 Route::post('/admin/store',[AdminController::class,'store'])->name('admin.store');
+
+
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
@@ -50,6 +56,7 @@ Route::get('/employee_add',[EmployeeController::class,'employee_add'])->name('em
 Route::post('/employee/store',[EmployeeController::class,'store'])->name('employee.store');
 Route::get('/employeee/view{employee_id}',[EmployeeController::class,'view'])->name('employee.view');
 Route::get('/employeee/delete{employee_id}',[EmployeeController::class,'delete'])->name('employee.delete');
+Route::get('/employeee/edit{employee_id}',[EmployeeController::class,'edit'])->name('employee.edit');
 
 
 
@@ -66,18 +73,25 @@ Route::post('/designation/store',[DesignationController::class,'store'])->name('
 Route::get('/attendance',[AttendanceController::class,'attendance'])->name('attendance');
 Route::get('/attendance_check',[AttendanceController::class,'attendance_check'])->name('attendance_check');
 Route::post('/attendance/store',[AttendanceController::class,'store'])->name('attendance.store');
-// Route::get('/checkin',[AttendanceController::class,'checkin'])->name('checkin');
+Route::get('/checkin',[AttendanceController::class,'checkin'])->name('checkin');
+Route::get('/checkout',[AttendanceController::class,'checkout'])->name('checkout');
+
+
+
 
 Route::get('/notification',[NotificationController::class,'notification'])->name('notification');
 
 
 Route::get('/leave',[LeaveController::class,'leave'])->name('leave');
 Route::get('/apply_leave',[LeaveController::class,'apply_leave'])->name('apply_leave');
-Route::post('/leave/store',[LeaveController::class,'store'])->name('leave.store');
+ Route::post('/leave/store',[LeaveController::class,'store'])->name('leave.store');
 
 
 
 Route::get('/leave_type',[Leave_typeController::class,'leave_type'])->name('leave_type');
+Route::get('/leave_type_add',[Leave_typeController::class,'leave_type_add'])->name('leave_type_add');
+Route::post('/leave_type/store',[Leave_typeController::class,'store'])->name('leave_type.store');
+
 
 
 

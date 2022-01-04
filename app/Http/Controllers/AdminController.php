@@ -11,27 +11,23 @@ class AdminController extends Controller
     public function admin(){
         return view('admin');
      }
-     public function store(Request $request){
-        // dd($request->all());
-
-        $userpost = $request->except('_token','remember');
-        //dd($userpost);
-        if (Auth::attempt($userpost)) {
-            return redirect()->route('admin.dashboard');
+    public function store(Request $request){
+    //    dd($request->all());
+    $userpost = $request->except('_token','remember');
+    //dd($userpost);
+    if (Auth::attempt($userpost)) {
+            if(Auth::user()->role=='admin')
+            {
+                return redirect()->route('admin.dashboard');
+            }
+            else{
+                Auth::logout();
+                //cut the dd and add user route here
+                
+            }
         }
-
-        else
-        return redirect()->back();
-
-        // Admin::create([
-        //     //table field name| input field name
-        //    //  'type'=>$request->type,
-        //     'username'=>$request->username,
-        //     'password'=>$request->password
-            
-        //     ]);
-     }
-     public function logout()
+    }
+    public function logout()
     {
         Auth::logout();
         return redirect()->route('admin.login')->with('message','Loging out.');

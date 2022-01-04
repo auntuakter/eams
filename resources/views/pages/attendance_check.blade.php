@@ -5,15 +5,14 @@
 
 
 
-<h1>Attendace List</h1>
+<h1>Attendance List</h1>
 
 <table class="table table-dark" action="{{route('attendance.store')}}" method='POST'>
 @csrf
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Employee_name</th>
-            <th scope="col">Department_name</th>
+            <th scope="col">Employee_id</th>
             <th scope="col">Date</th>
             <th scope="col">Check In </th>
             <th scope="col">Check Out</th>
@@ -26,24 +25,42 @@
         <tr>
 
         <th scope ="row">{{$key+1}}</th>
-      <td>{{$attendance->name}}</td>
-      <td>{{$attendance->department}}</td>
-      <td>{{$attendance->date}}</td>
-      <td>{{$attendance->check_in}}</td>
-      <td>{{$attendance->check_out}}</td>
+      <td>{{$attendance->employee_id}}</td>
+      <td>{{date('Y-m-d',strtotime($attendance->check_in))}}</td>
+      <td>{{date('h:i:m A',strtotime($attendance->check_in))}}</td>
+      <!-- <td>{{date('Y-m-d',strtotime($attendance->check_out))}}</td> -->
+      <td>{{$attendance->check_out?date('h:i:m A',strtotime($attendance->check_out)):''}}</td>
 
 
-
-           
             <td>
                 
-               <a href="" class="btm btn-danger">checkout</a>
-               <a href="" class="btm btn-info">checkin</a>
+            @if($attendance->check_in)
 
+            <span class="badge badge-primary">Present</span>
 
+            @else
+            <span class="badge badge-danger">Absent</span>
+
+            @endif
 
 
             </td>
+
+
+
+            <!-- <td>
+                
+                @if($attendance->check_out)
+    
+                <span class="badge badge-primary">Present</span>
+    
+                @else
+                <span class="badge badge-danger">Absent</span>
+    
+                @endif
+    
+    
+                </td> -->
 
 
         </tr>

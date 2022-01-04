@@ -19,7 +19,7 @@
     <br>
 
 <a href="{{route('attendance_check')}}" class="btn btn-primary" type="button">Check In</a>
-<a href="{{route('attendance_check')}}" class="btn btn-secondary" type="button">Check Out</a>
+<a href="{{route('checkout')}}" class="btn btn-secondary" type="button">Check Out</a>
 
 
 </div>
