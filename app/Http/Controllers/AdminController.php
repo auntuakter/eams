@@ -16,16 +16,20 @@ class AdminController extends Controller
     $userpost = $request->except('_token','remember');
     //dd($userpost);
     if (Auth::attempt($userpost)) {
-            if(Auth::user()->role=='admin')
+      
+            if(Auth::user()->role=='admin'|| Auth::user()->role=='user')
             {
                 return redirect()->route('admin.dashboard');
             }
             else{
                 Auth::logout();
+
+                return redirect()->back();
                 //cut the dd and add user route here
                 
             }
         }
+        return redirect()->back()->with('error','invalid credentials.');
     }
     public function logout()
     {

@@ -5,13 +5,14 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\AttendanceController;
-use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\Leave_typeController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\MovementController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth;
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -79,7 +80,7 @@ Route::get('/checkout',[AttendanceController::class,'checkout'])->name('checkout
 
 
 
-Route::get('/notification',[NotificationController::class,'notification'])->name('notification');
+Route::get('/notice',[NoticeController::class,'notice'])->name('notice');
 
 
 Route::get('/leave',[LeaveController::class,'leave'])->name('leave');
@@ -97,6 +98,9 @@ Route::post('/leave_type/store',[Leave_typeController::class,'store'])->name('le
 
 Route::get('/movement',[MovementController::class,'movement'])->name('movement');
 Route::get('/report',[ReportController::class,'report'])->name('report');
+
+
+Route::get('/profile',[ProfileController::class,'profile'])->name('profile');
 
 
 });

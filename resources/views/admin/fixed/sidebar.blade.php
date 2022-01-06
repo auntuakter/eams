@@ -13,12 +13,13 @@
         <a class="navbar-brand" href="javascript:void(0)">
           <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
         </a>
-      </div> -->
+      </div>  -->
       <div class="navbar-inner">
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Nav items -->
           <ul class="navbar-nav">
+            @if(auth()->user()->role=='admin')
             <li class="nav-item">
               <a class="nav-link active" href="dashboard.html">
                 <i class="ni ni-tv-2 text-primary"></i>
@@ -49,6 +50,15 @@
                 <span class="nav-link-text">Employee</span>
               </a>
             </li>
+
+            @endif
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('profile')}}">
+                <i class="ni ni-pin-3 text-primary"></i>
+                <span class="nav-link-text">User Profile</span>
+              </a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('attendance')}}">
                 <i class="ni ni-pin-3 text-primary"></i>
@@ -56,13 +66,8 @@
               </a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('notification')}}">
-                <i class="ni ni-pin-3 text-primary"></i>
-                <span class="nav-link-text">Notification</span>
-              </a>
-            </li>
-
+    
+            
             <li class="nav-item">
               <a class="nav-link" href="{{route('leave_type')}}">
                 <i class="ni ni-pin-3 text-primary"></i>
@@ -79,23 +84,36 @@
               </a>
             </li>
 
+            @if(auth()->user()->role=='admin')
+
             <li class="nav-item">
               <a class="nav-link" href="{{route('movement')}}">
                 <i class="ni ni-pin-3 text-primary"></i>
                 <span class="nav-link-text">Movement</span>
               </a>
             </li>
+            @endif
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('notice')}}">
+                <i class="ni ni-pin-3 text-primary"></i>
+                <span class="nav-link-text">Notice</span>
+              </a>
+            </li>
           
-            
+          
+            @if(auth()->user()->role=='admin')
 
-
-
+ 
             <li class="nav-item">
               <a class="nav-link" href="{{route('report')}}">
                 <i class="ni ni-circle-08 text-pink"></i>
                 <span class="nav-link-text">Report</span>
               </a>
             </li>
+            @endif
+
+            
             
           </ul>
           <!-- Divider -->

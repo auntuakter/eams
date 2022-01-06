@@ -1,7 +1,7 @@
 @extends('main')
 @section('content')
 
-<form>
+<form action="{{route('leave_type.store')}}" method='POST'>
     @csrf
     <h1>Leave Type</h1>
     

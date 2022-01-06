@@ -2,7 +2,8 @@
 @section('content')
 
 <h1>Leave</h1>
-<a href="{{route('apply_leave')}}" class="btn btn-secondary" type="button">Apply For Leave</a>
+
+<hr>
 
 <table class="table table-dark">
   <thead>
@@ -46,7 +47,7 @@
  
   </tbody>
 </table>
-
+<a href="{{route('apply_leave')}}" class="btn btn-secondary" type="button">Apply For Leave</a>
 
 
 @endsection

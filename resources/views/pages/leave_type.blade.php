@@ -14,32 +14,31 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Sick leave</td>
-      <td>10</td>
-      <td>Pending</td>
-      <td>sdcgfsyghdcauyscgauchs cgahbkajhcbvchjbs hj. </td>
-    </tr>
+  @foreach($leave_types as $key=>$leave_type)
+  <tr>
 
-    <tr>
-      <th scope="row">2</th>
-      <td>Casual leave</td>
-      <td>12</td>
-      <td>Pending</td>
-      <td>bhjfgdvbnxji hjchhggux xkjua . </td>
-    </tr>
+     <th scope ="row">{{$key+1}}</th>
+       <td>{{$leave_type->leave_type}}</td>
+        <td>{{$leave_type->day_of_amount}}</td>
+         <td>{{$leave_type->status}}</td>
+          <td>{{$leave_type->description}}</td>
 
-    <tr>
-      <th scope="row">2</th>
-      <td>Emergency leave</td>
-      <td>5</td>
-      <td>Pending</td>
-      <td>bhjfgdvbnxji hjchhggux xkjua . </td>
-    </tr>
+  <!-- <td>
+      <a class="btn btn-success" href="">View</a>
+     <a class="btn btn-danger" href="">Delete</a>  -->
+    <!-- <a class="btn btn-warning" href="">Edit</a>
+  </td> -->
+  
+</tr>
+@endforeach
  
   </tbody>
 </table>
+
+<!-- User don't access it. -->
+
+@if(auth()->user()->role=='admin')
 <a href="{{route('leave_type_add')}}" class="btn btn-secondary" type="button">Add New Leave Type</a>
+@endif
 
 @endsection

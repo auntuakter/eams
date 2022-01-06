@@ -17,19 +17,28 @@ class AttendanceController extends Controller
 
 
     public function attendance_check(){
+
         // auth()->user()->id;
         
-        Attendance::create([
-            'employee_id'=>auth()->user()->id,
-            'check_in'=>now(),
-            
+        
+       $todayData= Attendance::where('employee_id',auth()->user()->id)->whereDate('created_at',now())->first();
+if(empty($todayData))
+{
+    Attendance::create([
+        'employee_id'=>auth()->user()->id,
+        'check_in'=>now(),
+        
 
-        ]);
-
-        $attendances = Attendance::all();
+    ]);
+    $attendances = Attendance::all();
        
-        return view('pages.attendance_check',compact('attendances'));
-        // return ('ok');
+    return view('pages.attendance_check',compact('attendances'));
+}
+$attendances = Attendance::all();
+       
+return view('pages.attendance_check',compact('attendances'));
+    
+
      }
 
      

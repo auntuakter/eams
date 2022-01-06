@@ -17,7 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->string('password');
+            $table->string('password')->bcrypt();
             $table->string('address');
             $table->string('department');
             $table->string('gender');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\User;
 
 class EmployeeController extends Controller
 {
@@ -70,6 +71,16 @@ class EmployeeController extends Controller
             'joined_on'=>'required|date',
             'contact_no'=>'required|min:11|max:11',
             'image'=>''
+
+        ]);
+
+
+        User::create([
+
+            'name'=>$request->name,
+             'email'=>$request->email,
+             'password'=>bcrypt($request->password),
+
 
         ]);
 
