@@ -1,5 +1,13 @@
 @extends('main')
 @section('content')
+<!-- 
+Successfull meassage -->
+@if(session()->has('success'))
+        <p class="alert alert-success">
+            {{session()->get('success')}}
+        </p>
+    @endif
+
 <a href="{{route('designation_add')}}" class="btn btn-secondary" type="button">Add New Designation</a>
 <hr>
 
@@ -22,9 +30,9 @@
       <td>{{$designation->designation}}</td>
 
       <td>
-         <a class="btn btn-success" href="">View</a>
-         <a class="btn btn-danger" href="">Delete</a> 
-        <a class="btn btn-warning" href="">Edit</a>
+  
+         <a class="btn btn-danger" href="{{route('designation.delete',$designation->id)}}">Delete</a> 
+        <a class="btn btn-warning" href="{{route('designation.edit',$designation->id)}}">Edit</a>
       </td>
       
 </tr>

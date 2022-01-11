@@ -58,18 +58,24 @@ Route::post('/employee/store',[EmployeeController::class,'store'])->name('employ
 Route::get('/employeee/view{employee_id}',[EmployeeController::class,'view'])->name('employee.view');
 Route::get('/employeee/delete{employee_id}',[EmployeeController::class,'delete'])->name('employee.delete');
 Route::get('/employeee/edit{employee_id}',[EmployeeController::class,'edit'])->name('employee.edit');
+Route::put('/employeee/update{employee_id}',[EmployeeController::class,'update'])->name('employee.update');
 
 
 
 Route::get('/department',[DepartmentController::class,'department'])->name('department');
 Route::get('/department_add',[DepartmentController::class,'department_add'])->name('department_add');
 Route::post('/department/store',[DepartmentController::class,'store'])->name('department.store');
+Route::get('/department/delete{department_id}',[DepartmentController::class,'delete'])->name('department.delete');
+Route::get('/department/edit{department_id}',[DepartmentController::class,'edit'])->name('department.edit');
+Route::put('/department/update{department_id}',[DepartmentController::class,'update'])->name('department.update');
 
 
 Route::get('/designation',[DesignationController::class,'designation'])->name('designation');
 Route::get('/designation_add',[DesignationController::class,'designation_add'])->name('designation_add');
 Route::post('/designation/store',[DesignationController::class,'store'])->name('designation.store');
-
+Route::get('/designation/delete{designation_id}',[DesignationController::class,'delete'])->name('designation.delete');
+Route::get('/designation/edit{designation_id}',[DesignationController::class,'edit'])->name('designation.edit');
+Route::put('/designation/update{designation_id}',[DesignationController::class,'update'])->name('designation.update');
 
 Route::get('/attendance',[AttendanceController::class,'attendance'])->name('attendance');
 Route::get('/attendance_check',[AttendanceController::class,'attendance_check'])->name('attendance_check');

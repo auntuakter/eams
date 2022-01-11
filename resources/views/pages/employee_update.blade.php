@@ -5,7 +5,8 @@
 
 <form action=" {{route('employee.update',$employee->id )}} " method="POST"  enctype="multipart/form-data">
   @csrf
-  @method("PATCH")
+  @method('PUT')
+  <!-- @method("PATCH") -->
 <div class="form-group row">
     <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
     <div class="col-sm-10">

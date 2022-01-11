@@ -128,7 +128,7 @@ body{
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <img src="https://media-exp1.licdn.com/dms/image/C5603AQF-Bsh5_NaYpw/profile-displayphoto-shrink_400_400/0/1601822612189?e=1646870400&v=beta&t=w94xUqfRZt8bT1vocbxlNO6eMHn_T6gwr0FafGcpaoo" alt=""/>
                             <div class="file btn btn-lg btn-primary">
                                 Change Photo
                                 <input type="file" name="file"/>
@@ -208,6 +208,15 @@ body{
       <input name="contact_no" type="contact_no" class="form-control" id="inputContact_no3" value="{{$profile->contact_no}}" placeholder="Contact_no">
     </div>
   </div>
+
+
+  <div class="form-group row">
+        <label for="inputImage3" class="col-sm-2 col-form-label">Image</label>
+        <div class="col-sm-10">
+        <input name="image" type="file" class="form-control" id="inputImage" aria-describedby="emailHelp">
+</div>
+    </div>
+    
 
                                             
 

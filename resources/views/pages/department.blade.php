@@ -5,8 +5,12 @@
 <hr>
 <h1> Department List</h1>
 
-
-
+<!-- successfull message showing -->
+@if(session()->has('success'))
+        <p class="alert alert-success">
+            {{session()->get('success')}}
+        </p>
+    @endif
 
 <!-- list -->
 
@@ -28,11 +32,12 @@
       <td>{{$department->department_name}}</td>
 
       <td>
-         <!-- <a class="btn btn-success" href="">View</a>
-         <a class="btn btn-danger" href="">Delete</a>  -->
-        <a class="btn btn-warning" href="">Edit</a>
+          <!-- <a class="btn btn-success" href="">View</a> -->
+         <a class="btn btn-danger" href="{{route('department.delete',$department->id)}}">Delete</a>
+        <a class="btn btn-warning" href="{{route('department.edit',$department->id)}}">Edit</a>
+
       </td>
-      
+
     </tr>
     @endforeach
   </tbody>

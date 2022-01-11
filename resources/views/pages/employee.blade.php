@@ -1,5 +1,7 @@
 @extends('main')
 @section('content')
+
+<!-- Success Message show -->
 @if(session()->has('success'))
         <p class="alert alert-success">
             {{session()->get('success')}}
@@ -38,11 +40,11 @@
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Password</th>
-      <th scope="col">Address</th>
+      <!-- <th scope="col">Address</th> -->
       <th scope="col">Department</th>
-      <th scope="col">Gender</th>
+      <!-- <th scope="col">Gender</th>
       <th scope="col">Joined_on</th>
-      <th scope="col">Contact_no</th>
+      <th scope="col">Contact_no</th> -->
       <th scope="col">Image</th>
       <th scope="col">Action</th>
     </tr>
@@ -55,11 +57,11 @@
       <td>{{$employee->name}} "---" {{$employee->id}}</td>
       <td>{{$employee->email}}</td>
       <td>{{$employee->password}}</td>
-      <td>{{$employee->address}}</td>
+      <!-- <td>{{$employee->address}}</td> -->
       <td>{{$employee->department}}</td>
-      <td>{{$employee->gender}}</td>
+      <!-- <td>{{$employee->gender}}</td>
       <td>{{$employee->joined_on}}</td>
-      <td>{{$employee->contact_no}}</td>
+      <td>{{$employee->contact_no}}</td> -->
 
       <td>
         <img style="border-radius: 4px;" width="100px;" src="{{url('/employees/'.$employee->image)}}" alt="no image">

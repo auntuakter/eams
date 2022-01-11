@@ -28,4 +28,43 @@ class DesignationController extends Controller
             ]);
             return redirect()->back();
         }
+
+        //delete
+
+        public function delete($designation_id)
+    {
+       designation::find($designation_id)->delete();
+       return redirect()->back()->with('success','Designation Deleted.');
+    }
+
+     // edit
+
+     public function edit($id)
+     {
+         
+         $designation=Designation::find($id);
+ 
+         return view('pages.designation_update',compact('designation'));
+ 
+     }
+
+     //update
+
+     public function update($id,Request $request)
+
+
+    {
+       
+        $designation=Designation::find($id);
+
+        
+                    
+        $designation->update([
+            'designation'=>$request->designation,
+             
+            
+            
+        ]);
+        return redirect()->back()->with('success','Designation Updated Successfully');
+    }
 }
