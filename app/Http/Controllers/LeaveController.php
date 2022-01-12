@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Leave;
+use App\Models\Employee;
 
 class LeaveController extends Controller
 {
@@ -36,7 +37,14 @@ class LeaveController extends Controller
             ]);
             return redirect()->back();
      }
-   
+     public function UpdateStatus($employee_id)
+     {
+         $data = Leave::where('user_id',$employee_id)->first();
+         $data->update([
+             'status'=>request()->status
+         ]);
+         return redirect()->back();
+     }
      
     
 }

@@ -11,9 +11,11 @@ class ProfileController extends Controller
     public function profile(){
         // return view('pages.profile');
 
-    $profile = Employee::where('id', Auth::user()->id)->first();
+    $profile = Employee::where('email', Auth::user()->email)->first();
     return view('pages.profile', compact('profile'));
 
     }
+
+    
 
 }

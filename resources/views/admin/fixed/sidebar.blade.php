@@ -53,12 +53,15 @@
 
             @endif
 
+            @if(auth()->user()->role=='user')
+
             <li class="nav-item">
               <a class="nav-link" href="{{route('profile')}}">
                 <i class="ni ni-pin-3 text-primary"></i>
-                <span class="nav-link-text">User Profile</span>
+                <span class="nav-link-text">MY Profile</span>
               </a>
             </li>
+            @endif
             <li class="nav-item">
               <a class="nav-link" href="{{route('attendance')}}">
                 <i class="ni ni-pin-3 text-primary"></i>
@@ -109,6 +112,14 @@
               <a class="nav-link" href="{{route('report')}}">
                 <i class="ni ni-circle-08 text-pink"></i>
                 <span class="nav-link-text">Report</span>
+              </a>
+            </li>
+
+            
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('sallary')}}">
+                <i class="ni ni-circle-08 text-pink"></i>
+                <span class="nav-link-text">Sallary</span>
               </a>
             </li>
             @endif

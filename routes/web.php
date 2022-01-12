@@ -10,6 +10,7 @@ use App\Http\Controllers\Leave_typeController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\MovementController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SallaryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\ProfileController;
@@ -30,7 +31,7 @@ Route::get('/user', function () {
     return view('master');
 })->name('user.view');
 
-Route::get('/login', function () {
+Route::get('/', function () {
     return view('admin');
 })->name('admin.login');
 
@@ -79,6 +80,7 @@ Route::put('/designation/update{designation_id}',[DesignationController::class,'
 
 Route::get('/attendance',[AttendanceController::class,'attendance'])->name('attendance');
 Route::get('/attendance_check',[AttendanceController::class,'attendance_check'])->name('attendance_check');
+Route::get('/attendance_view',[AttendanceController::class,'attendance_view'])->name('attendance_view');
 Route::post('/attendance/store',[AttendanceController::class,'store'])->name('attendance.store');
 Route::get('/checkin',[AttendanceController::class,'checkin'])->name('checkin');
 Route::get('/checkout',[AttendanceController::class,'checkout'])->name('checkout');
@@ -92,7 +94,7 @@ Route::get('/notice',[NoticeController::class,'notice'])->name('notice');
 Route::get('/leave',[LeaveController::class,'leave'])->name('leave');
 Route::get('/apply_leave',[LeaveController::class,'apply_leave'])->name('apply_leave');
  Route::post('/leave/store',[LeaveController::class,'store'])->name('leave.store');
-
+ Route::post('leave/update/status{employee_id}',[LeaveController::class,'UpdateStatus'])->name('update.status');
 
 
 Route::get('/leave_type',[Leave_typeController::class,'leave_type'])->name('leave_type');
@@ -104,6 +106,12 @@ Route::post('/leave_type/store',[Leave_typeController::class,'store'])->name('le
 
 Route::get('/movement',[MovementController::class,'movement'])->name('movement');
 Route::get('/report',[ReportController::class,'report'])->name('report');
+
+
+Route::get('/sallary',[SallaryController::class,'sallary'])->name('sallary');
+Route::get('/sallary_add',[SallaryController::class,'sallary_add'])->name('sallary_add');
+Route::post('/sallary/store',[SallaryController::class,'store'])->name('sallary.store');
+
 
 
 Route::get('/profile',[ProfileController::class,'profile'])->name('profile');

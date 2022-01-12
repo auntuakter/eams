@@ -17,9 +17,11 @@
 <div class="box">
     <h1> Daily Attendance</h1>
     <br>
-
+    @if(auth()->user()->role=='user')
 <a href="{{route('attendance_check')}}" class="btn btn-primary" type="button">Check In</a>
-<a href="{{route('checkout')}}" class="btn btn-secondary" type="button">Check Out</a>
+@endif
+<a href="{{route('attendance_view')}}" class="btn btn-primary" type="button">Attendance View</a>
+<!-- <a href="{{route('checkout')}}" class="btn btn-secondary" type="button">Check Out</a> -->
 
 
 </div>
