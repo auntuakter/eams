@@ -65,5 +65,20 @@
 </table>
 
 
+@if(auth()->user()->role=='admin')
+
+<div class="box">
+    <h1> THANK YOU FOR TODAY</h1>
+    <h3>HAVE A GOOD DAY</h3>
+    
+
+
+ <a href="{{route('checkout')}}" class="btn btn-secondary" type="button" >Check Out</a> 
+
+
+</div>
+@endif
+
+
 
 @endsection

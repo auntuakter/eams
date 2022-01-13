@@ -81,6 +81,7 @@ Route::put('/designation/update{designation_id}',[DesignationController::class,'
 Route::get('/attendance',[AttendanceController::class,'attendance'])->name('attendance');
 Route::get('/attendance_check',[AttendanceController::class,'attendance_check'])->name('attendance_check');
 Route::get('/attendance_view',[AttendanceController::class,'attendance_view'])->name('attendance_view');
+Route::get('/attendance_report',[AttendanceController::class,'attendance_report'])->name('attendance_report');
 Route::post('/attendance/store',[AttendanceController::class,'store'])->name('attendance.store');
 Route::get('/checkin',[AttendanceController::class,'checkin'])->name('checkin');
 Route::get('/checkout',[AttendanceController::class,'checkout'])->name('checkout');

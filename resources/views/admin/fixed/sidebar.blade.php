@@ -69,6 +69,15 @@
               </a>
             </li>
 
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('attendance_report')}}">
+                <i class="ni ni-pin-3 text-primary"></i>
+                <span class="nav-link-text">Attendance Report</span>
+              </a>
+            </li>
+
     
             
             <li class="nav-item">

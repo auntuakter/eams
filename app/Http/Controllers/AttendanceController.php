@@ -117,6 +117,19 @@ return view('pages.attendance_view',compact('attendances'));
      }
 
 
+     //attendance report
+
+     public function attendance_report(){
+        $attendances = Attendance::all();
+       
+        return view('pages.attendance_report',compact('attendances'));
+            
+        
+     }
+
+
+
+
 
 }
 

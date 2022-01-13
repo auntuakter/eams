@@ -1,13 +1,18 @@
 @extends('main')
 @section('content')
 
+
+
 <form action="{{route('leave.store')}}" method='POST'>
-  @csrf
+ @csrf
+ <h1>Leave Request Form</h1>
+ <div class="row ">
+        <div class="col-lg-10 mx-auto">
+            <div class="card mt-2 mx-auto p-4 bg-light">
+           
+                  
 
-  <h1>Apply for leave</h1>
-  
 
-  
   <div class="form-group row">
     <label for="inputLeave_type3" class="col-sm-2 col-form-label">Leave Type</label>
     <div class="col-sm-10">
@@ -18,16 +23,9 @@
   <option value="annaul">Annaul</option>
   <option value="emergency">Emergency</option>
 </select>
-
-
-
-      
     </div>
   </div>
   
-
-
-
 
   <div class="form-group row">
     <label for="inputDescription3" class="col-sm-2 col-form-label">Description</label>
@@ -58,8 +56,12 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </div>
-</form> 
 
+
+</div>
+</div>
+</div>
+</form>  
 
 
 
