@@ -6,9 +6,11 @@
 <hr>
 <style>
     .box {
+      margin: auto;  
+        margin-bottom: 200px; 
   width: 600px;
   height: 250px;  
-  padding: 100px;
+  padding: 85px;
   border: 5px solid black;
   background-color:#c6c4cd;
 }
@@ -21,7 +23,7 @@
 <a href="{{route('attendance_check')}}" class="btn btn-primary" type="button">Check In</a>
 @endif -->
 <a href="{{route('attendance_check')}}" class="btn btn-primary" type="button">Check In</a>
-<!-- <a href="{{route('attendance_view')}}" class="btn btn-primary" type="button">Attendance View</a>  -->
+<a href="{{route('attendance_view')}}" class="btn btn-primary" type="button">Attendance View</a> 
 
 
 

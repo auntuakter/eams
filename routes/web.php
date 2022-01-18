@@ -90,12 +90,14 @@ Route::get('/checkout',[AttendanceController::class,'checkout'])->name('checkout
 
 
 Route::get('/notice',[NoticeController::class,'notice'])->name('notice');
+Route::get('/notice_add',[NoticeController::class,'notice_add'])->name('notice_add');
+Route::post('/notice/store',[NoticeController::class,'store'])->name('notice.store');
 
 
 Route::get('/leave',[LeaveController::class,'leave'])->name('leave');
 Route::get('/apply_leave',[LeaveController::class,'apply_leave'])->name('apply_leave');
- Route::post('/leave/store',[LeaveController::class,'store'])->name('leave.store');
- Route::post('leave/update/status{employee_id}',[LeaveController::class,'UpdateStatus'])->name('update.status');
+Route::post('/leave/store',[LeaveController::class,'store'])->name('leave.store');
+Route::post('leave/update/status{employee_id}',[LeaveController::class,'UpdateStatus'])->name('update.status');
 
 
 Route::get('/leave_type',[Leave_typeController::class,'leave_type'])->name('leave_type');

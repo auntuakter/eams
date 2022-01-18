@@ -2,12 +2,16 @@
 @section('content')
 
 
+<h1> Attendance</h1>
+<hr>
 
 <style>
     .box {
-  width: 600px;
+        margin: auto;  
+        margin-bottom: 200px;    
+  width: 50%;
   height: 250px;  
-  padding: 100px;
+  padding: 85px;
   border: 5px solid black;
   background-color:#c6c4cd;
 }
@@ -15,7 +19,7 @@
 </style>
 
 
-
+<!-- 
 
 <h1>Attendance List</h1>
 
@@ -40,7 +44,7 @@
       <td>{{$attendance->employee_id}}</td>
       <td>{{date('Y-m-d',strtotime($attendance->check_in))}}</td>
       <td>{{date('h:i:s A',strtotime($attendance->check_in))}}</td>
-      <!-- <td>{{date('Y-m-d',strtotime($attendance->check_out))}}</td> -->
+      
       <td>{{$attendance->check_out? date('h:i:s A',strtotime($attendance->check_out)):'' }}</td>
 
 
@@ -63,7 +67,7 @@
         @endforeach
 
     </tbody>
-</table>
+</table> -->
 
 
 <div class="box">

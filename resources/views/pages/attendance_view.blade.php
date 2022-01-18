@@ -64,7 +64,7 @@
     </tbody>
 </table>
 
-
+<!-- 
 @if(auth()->user()->role=='admin')
 
 <div class="box">
@@ -76,7 +76,7 @@
  <a href="{{route('checkout')}}" class="btn btn-secondary" type="button" >Check Out</a> 
 
 
-</div>
+</div> -->
 @endif
 
 

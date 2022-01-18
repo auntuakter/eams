@@ -121,7 +121,7 @@ body{
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<h1>User Profile</h1>
+<h1>User Profile </h1>
 
 <div class="container emp-profile">
             <form method="post">

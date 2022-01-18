@@ -9,6 +9,8 @@ use App\Models\Employee;
 class AttendanceController extends Controller
 {
     public function Attendance(){
+
+        
         $attendances = Attendance::all();
         // dd($attendances);
         return view('pages.attendance',compact('attendances'));
@@ -99,12 +101,12 @@ return view('pages.attendance_check',compact('attendances'));
     $todayData= Attendance::where('employee_id',auth()->user()->id)->whereDate('created_at',now())->first();
  if(empty($todayData))
  {
-    Attendance::create([
-     'employee_id'=>auth()->user()->id,
-    'check_in'=>now(),
+//     Attendance::create([
+//      'employee_id'=>auth()->user()->id,
+//      'check_in'=>now(),
         
 
-   ]);
+//    ]);
     $attendances = Attendance::all();
        
     return view('pages.attendance_view',compact('attendances'));
@@ -120,12 +122,17 @@ return view('pages.attendance_view',compact('attendances'));
      //attendance report
 
      public function attendance_report(){
-        $attendances = Attendance::all();
+        $attendances = Attendance::where('employee_id',1)->get();
+        // $attendances = Attendance::where('employee_id',auth()->user()->id)->get();
+        // dd($attendances);
        
         return view('pages.attendance_report',compact('attendances'));
             
         
      }
+
+
+     
 
 
 
