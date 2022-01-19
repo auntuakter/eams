@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\Employee;
+use App\Models\User;
 
 class AttendanceController extends Controller
 {
@@ -20,7 +21,7 @@ class AttendanceController extends Controller
 
     public function attendance_check(){
 
-        // auth()->user()->id;
+        //  dd(auth()->user()->id);
         
         
        $todayData= Attendance::where('employee_id',auth()->user()->id)->whereDate('created_at',now())->first();
@@ -121,15 +122,23 @@ return view('pages.attendance_view',compact('attendances'));
 
      //attendance report
 
-     public function attendance_report(){
-        $attendances = Attendance::where('employee_id',1)->get();
-        // $attendances = Attendance::where('employee_id',auth()->user()->id)->get();
-        // dd($attendances);
-       
-        return view('pages.attendance_report',compact('attendances'));
-            
-        
-     }
+    public function attendance_report()
+    {
+        // dd(request()->all());
+
+        if(request()->has('employees'))
+        {
+            $employees = User::all();
+            $attendances = Attendance::where('employee_id',request()->employees)->get();
+
+            return view('pages.attendance_report',compact('attendances','employees'));
+        }
+        $employees = User::all();
+        // $employees= null;
+        // $attendances = Attendance::all();
+        $attendances= null;
+        return view('pages.attendance_report',compact('attendances','employees'));
+    }
 
 
      

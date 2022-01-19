@@ -14,12 +14,14 @@
 </style>
 
 
+<form action="{{route('attendance_report')}}" method='GET'>
+
 <label for="employees">Employee:</label>
   <select name="employees" id="employees">
-    <option value="volvo">admin</option>
-    <option value="volvo">Auntu</option>
-    <option value="saab">Sadia</option>
-    
+    @foreach($employees as $employee)
+    <option value={{$employee->id}}>{{$employee->name}}</option>   
+    <!-- <option value={{$employee->id}}>{{$employee->created_at}}</option>    -->
+    @endforeach 
   </select>
 
   <label for="months">Month:</label>
@@ -61,17 +63,18 @@
 
    
     
-  </select>
+  </select> 
+  <br>
 
+<button class="btn btn-success" type="submit">Submit</button>
  
+</form>
 
   
 
 
 
-
-
-
+@if( $attendances != null)
 
 @php 
 
@@ -82,7 +85,7 @@ $last_day_this_month  = date('t');
 
 <h1>Attendance List</h1>
 
-<table class="table table-dark" action="{{route('attendance.store')}}" method='POST'>
+<table class="table table-dark" action="{{route('attendance_report')}}" method='POST'>
 @csrf
     <thead>
         <tr>
@@ -145,6 +148,9 @@ $last_day_this_month  = date('t');
 
 <h1>Total Present :{{$total_present}}</h1>
 
+@else
+<h3>please select an employee</h3>
 
+@endif
 
 @endsection
