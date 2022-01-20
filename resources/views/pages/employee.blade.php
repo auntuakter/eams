@@ -58,7 +58,9 @@
       <td>{{$employee->email}}</td>
       <td>{{$employee->password}}</td>
       <!-- <td>{{$employee->address}}</td> -->
-      <td>{{$employee->department}}</td>
+      <td>{{$employee->department->department_name}}</td>
+      
+      
       <!-- <td>{{$employee->gender}}</td>
       <td>{{$employee->joined_on}}</td>
       <td>{{$employee->contact_no}}</td> -->

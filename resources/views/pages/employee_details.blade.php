@@ -6,7 +6,7 @@
 <p>Email: {{$employee->email}}</p>
 <p>Password: {{$employee->password}}</p>
 <p>Address: {{$employee->address}}</p>
-<p>Department: {{$employee->department}}</p>
+<p>Department: {{$employee->department->department_name}}</p>
 <p>Gender: {{$employee->gender}}</p>
 <p>Joinded_on: {{$employee->joined_on}}</p>
 <p>Contact_no: {{$employee->contact_no}}</p>

@@ -36,15 +36,16 @@ class LeaveController extends Controller
             
             ]);
             return redirect()->back();
-     }
-     public function UpdateStatus($employee_id)
-     {
-         $data = Leave::where('user_id',$employee_id)->first();
-         $data->update([
-             'status'=>request()->status
+        }
+        //
+         public function UpdateStatus($employee_id)
+        {
+          $data = Leave::where('user_id',$employee_id)->first();
+          $data->update([
+          'status'=>request()->status
          ]);
          return redirect()->back();
-     }
+        }
      
     
 }

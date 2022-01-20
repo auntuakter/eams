@@ -99,22 +99,17 @@ return view('pages.attendance_check',compact('attendances'));
         // auth()->user()->id;
         
         
-    $todayData= Attendance::where('employee_id',auth()->user()->id)->whereDate('created_at',now())->first();
- if(empty($todayData))
- {
-//     Attendance::create([
-//      'employee_id'=>auth()->user()->id,
-//      'check_in'=>now(),
-        
+     $todayData= Attendance::where('employee_id',auth()->user()->id)->whereDate('created_at',now())->first();
+     if(empty($todayData))
+    {
 
-//    ]);
-    $attendances = Attendance::all();
+      $attendances = Attendance::all();
        
-    return view('pages.attendance_view',compact('attendances'));
+      return view('pages.attendance_view',compact('attendances'));
  }
-$attendances = Attendance::all();
+     $attendances = Attendance::all();
        
-return view('pages.attendance_view',compact('attendances'));
+     return view('pages.attendance_view',compact('attendances'));
     
 
      }
@@ -134,8 +129,7 @@ return view('pages.attendance_view',compact('attendances'));
             return view('pages.attendance_report',compact('attendances','employees'));
         }
         $employees = User::all();
-        // $employees= null;
-        // $attendances = Attendance::all();
+        
         $attendances= null;
         return view('pages.attendance_report',compact('attendances','employees'));
     }

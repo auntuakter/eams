@@ -46,12 +46,21 @@
             <td>
                 
             @if($attendance->check_in)
-
             <span class="badge badge-primary">Present</span>
+                @if(date('H',strtotime($attendance->check_in))> 9)
+                
+
+                <span class="badge badge-danger">Late Entry </span>
+                @endif
+                @if($attendance->check_out!=null && date('H',strtotime($attendance->check_out)) < 17)
+                
+                <span class="badge badge-danger">Early Exit</span>
+                @endif
 
             @else
+            
             <span class="badge badge-danger">Absent</span>
-
+           
             @endif
 
 

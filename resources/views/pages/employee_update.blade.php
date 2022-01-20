@@ -33,7 +33,7 @@
   <div class="form-group row">
     <label for="inputDepartment3" class="col-sm-2 col-form-label">Department</label>
     <div class="col-sm-10">
-      <input name="department" type="department" class="form-control" id="inputDepartment3"value="{{$employee->department}}">
+      <input name="department" type="department" class="form-control" id="inputDepartment3"value="{{$employee->department->department_name}}">
     </div>
   </div>
 

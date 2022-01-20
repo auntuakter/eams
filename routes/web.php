@@ -118,6 +118,8 @@ Route::post('/sallary/store',[SallaryController::class,'store'])->name('sallary.
 
 
 Route::get('/profile',[ProfileController::class,'profile'])->name('profile');
+Route::get('/profile/edit{profile_id}',[ProfileController::class,'edit'])->name('profile.edit');
+Route::put('/profile/update/{profile_id}',[ProfileController::class,'update'])->name('profile.update');
 
 
 });

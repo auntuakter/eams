@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\User;
+use App\Models\Department;
+
 
 class EmployeeController extends Controller
 {
@@ -20,7 +22,7 @@ class EmployeeController extends Controller
                 ->get();
             return view('pages.employee',compact('employees','key'));
         }
-        $employees = Employee::all();
+        $employees = Employee::with('department')->get();
         return view('pages.employee',compact('employees','key'));
     }
 
@@ -32,14 +34,18 @@ class EmployeeController extends Controller
       
     // }
 
-    public function employee_add(){
+    public function employee_add()
+    {
+        $departments=Department::all();
+       
+        // take one variable and compact as designation 
+        return view('pages.employee_add',compact('departments',));
         
-        return view('pages.employee_add');
        
     }
 
      public function store(Request $request){
-        //dd($request->all());
+        // dd($request->all());
 
 
 
@@ -51,7 +57,7 @@ class EmployeeController extends Controller
                  {
                      // step 2: generate file name
                      $image_name=date('Ymdhis') .'.'. $request->file('image')->getClientOriginalExtension();
-
+                        // dd($image_name);
                      //step 3 : store into project directory
 
                      $request->file('image')->storeAs('/employees',$image_name);
@@ -66,34 +72,35 @@ class EmployeeController extends Controller
             'email'=>'required|email',
             'password'=>'required',
             'address'=>'required',
-            'department'=>'required',
+            'department_id'=>'required',
+
             'gender'=>'required',
             'joined_on'=>'required|date',
             'contact_no'=>'required|min:11|max:11',
-            'image'=>''
-
         ]);
 
 
-        User::create([
+        $user = User::create([
 
             'name'=>$request->name,
              'email'=>$request->email,
              'password'=>bcrypt($request->password),
-
+            'image'=>$image_name
 
         ]);
-
+        // dd($user);
         // dd($request->image);
 
          Employee::create([
              //table field name| input field name
             //  'type'=>$request->type,
+            'user_id'=>$user->id,
              'name'=>$request->name,
              'email'=>$request->email,
              'password'=>$request->password,
              'address'=>$request->address,
-             'department'=>$request->department,
+             'department_id'=>$request->department_id,
+             
              'gender'=>$request->gender,
              'joined_on'=>$request->joined_on,
              'contact_no'=>$request->contact_no,
@@ -165,6 +172,7 @@ class EmployeeController extends Controller
              'email'=>$request->email,
              'address'=>$request->address,
              'department'=>$request->department,
+            
              'gender'=>$request->gender,
              'joined_on'=>$request->joined_on,
              'contact_no'=>$request->contact_no,
