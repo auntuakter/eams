@@ -32,7 +32,7 @@ class ProfileController extends Controller
     //update
     public function update($id,Request $request)
     {
-    //  dd($request->all());
+    // dd($request->all());
         // dd($id);
        
         $profile=Employee::find($id);
@@ -55,10 +55,8 @@ class ProfileController extends Controller
         
         $profile->update([
              'name'=>$request->name,
-             
              'address'=>$request->address,
              'department'=>$request->department,
-
              'gender'=>$request->gender,
              'contact_no'=>$request->contact_no,
              'image'=>$image_name,

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\User;
 use App\Models\Department;
+use App\Models\Designation;
 
 
 class EmployeeController extends Controller
@@ -37,9 +38,10 @@ class EmployeeController extends Controller
     public function employee_add()
     {
         $departments=Department::all();
+        $designations=Designation::all();
        
         // take one variable and compact as designation 
-        return view('pages.employee_add',compact('departments',));
+        return view('pages.employee_add',compact('departments','designations'));
         
        
     }
@@ -73,7 +75,6 @@ class EmployeeController extends Controller
             'password'=>'required',
             'address'=>'required',
             'department_id'=>'required',
-
             'gender'=>'required',
             'joined_on'=>'required|date',
             'contact_no'=>'required|min:11|max:11',
@@ -94,13 +95,14 @@ class EmployeeController extends Controller
          Employee::create([
              //table field name| input field name
             //  'type'=>$request->type,
-            'user_id'=>$user->id,
+             'user_id'=>$user->id,
              'name'=>$request->name,
              'email'=>$request->email,
              'password'=>$request->password,
              'address'=>$request->address,
              'department_id'=>$request->department_id,
-             
+             'designation_id'=>$request->designation_id,
+            //  'designation'=>$request->designation,
              'gender'=>$request->gender,
              'joined_on'=>$request->joined_on,
              'contact_no'=>$request->contact_no,
@@ -134,14 +136,16 @@ class EmployeeController extends Controller
     }
 
 
-    //edit
+     //edit
 
-    public function edit($id)
+      public function edit($id)
     {
-        
-        $employee=Employee::find($id);
+        $designations=Designation::all();
 
-        return view('pages.employee_update',compact('employee'));
+        $employee=Employee::find($id);
+        $departments= Department::all();
+
+        return view('pages.employee_update',compact('employee','departments','designations'));
 
     }
 
@@ -152,7 +156,7 @@ class EmployeeController extends Controller
 
 
     {
-        // dd($id, request()->all());
+        // dd(request()->all());
         $employee=Employee::find($id);
 
         $image_name=$employee->image;
@@ -171,8 +175,8 @@ class EmployeeController extends Controller
             'name'=>$request->name,
              'email'=>$request->email,
              'address'=>$request->address,
-             'department'=>$request->department,
-            
+             'department_id'=>$request->department_id,
+             'designation_id'=>$request->designation_id,
              'gender'=>$request->gender,
              'joined_on'=>$request->joined_on,
              'contact_no'=>$request->contact_no,

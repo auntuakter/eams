@@ -77,14 +77,31 @@
   </div>
 
 
+  <div class="form-group row">
+    <label for="inputLeave_type3" class="col-sm-2 col-form-label">Designation</label>
+    <div class="col-sm-10">
+<!-- dropdown -->
+<select name="designation_id" type="leave_type" class="form-control" id="inputLeave_type3" placeholder="Designation">
+@foreach($designations as $designation)
+    <option value={{$designation->id}}>{{$designation->designation}}</option>   
+    @endforeach 
+</select>
 
-  
+    </div>
+  </div>
 
 
 
 
+  <!-- <div class="form-group row">
+    <label for="inputGender3" class="col-sm-2 col-form-label">Designation</label>
+    <div class="col-sm-10">
+      
+      <input name="designation" type="designation" class="form-control" id="inputDesignation3" placeholder="Designation">
+    </div>
+  </div> -->
 
-  
+
 
   <div class="form-group row">
     <label for="inputGender3" class="col-sm-2 col-form-label">Gender</label>

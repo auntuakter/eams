@@ -21,8 +21,9 @@ class CreateEmployeesTable extends Migration
             $table->string('password')->bcrypt();
             $table->string('address');
             $table->unsignedBigInteger('department_id');
+            $table->unsignedBigInteger('designation_id');
             
-           
+            // $table->string('designation');
             $table->string('gender');
             $table->string('joined_on');
             $table->integer('contact_no');

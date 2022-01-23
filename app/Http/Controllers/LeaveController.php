@@ -47,5 +47,6 @@ class LeaveController extends Controller
          return redirect()->back();
         }
      
-    
+
+        
 }

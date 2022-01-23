@@ -31,11 +31,34 @@
   </div>
 
   <div class="form-group row">
-    <label for="inputDepartment3" class="col-sm-2 col-form-label">Department</label>
+    <label for="inputLeave_type3" class="col-sm-2 col-form-label">Department</label>
     <div class="col-sm-10">
-      <input name="department" type="department" class="form-control" id="inputDepartment3"value="{{$employee->department->department_name}}">
+<!-- dropdown -->
+<select name="department_id" type="leave_type" class="form-control" id="inputLeave_type3" placeholder="Leave_type">
+@foreach($departments as $department)
+    <option value={{$department->id}}>{{$department->department_name}}</option>   
+    @endforeach 
+</select>
+
     </div>
   </div>
+
+
+
+
+  <div class="form-group row">
+    <label for="inputLeave_type3" class="col-sm-2 col-form-label">Designation</label>
+    <div class="col-sm-10">
+<!-- dropdown -->
+<select name="designation_id" type="leave_type" class="form-control" id="inputLeave_type3" placeholder="Designation">
+@foreach($designations as $designation)
+    <option value={{$designation->id}}>{{$designation->designation}}</option>   
+    @endforeach 
+</select>
+
+    </div>
+  </div>
+ 
 
   <div class="form-group row">
     <label for="inputGender3" class="col-sm-2 col-form-label">Gender</label>

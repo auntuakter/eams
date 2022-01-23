@@ -21,7 +21,8 @@
             </button> -->
 
             <div>
-            <a href="{{route('admin.logout')}}" style="padding-left:1000px;color:blue;">Logout</a>
+            <!-- <a href="{{route('admin.logout')}}" button type="button" class="btn btn-info">Info</button> -->
+            <a href="{{route('admin.logout')}}"button type="button" class="btn btn-info" style="margin-left:950px;color:fff;">Logout</a>
             </div>
 
 

@@ -1,14 +1,10 @@
 
-<style>
-  .collapse{
-    background-color:##DE3163;
-  }
-</style>
+
 <!-- Sidenav -->
 <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
       <!-- Brand -->
-      <h1>EAMS</h1>
+      <h1 style="color:#11cdef;">EAMS </h1>
        <!-- <div class="sidenav-header  align-items-center">
         <a class="navbar-brand" href="javascript:void(0)">
           <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
