@@ -17,11 +17,12 @@ class CreateAttendancesTable extends Migration
             $table->id();
             $table->string('employee_id');
             // $table->string('department_name');
-            $table->date('date')->nullable();
-            $table->dateTime('check_in');
-            $table->dateTime('check_out')->nullable();;
-            
+            $table->date('date');
+            $table->dateTime('check_in')->nullable();
+            $table->dateTime('check_out')->nullable();
+            $table->string('status')->default('present');
             $table->timestamps();
+
         });
     }
 

@@ -30,6 +30,7 @@ if(empty($todayData))
     Attendance::create([
         'employee_id'=>auth()->user()->id,
         'check_in'=>now(),
+        'date'=>now()
         
 
     ]);
@@ -46,7 +47,8 @@ return view('pages.attendance_check',compact('attendances'));
 
      
      public function store(Request $request){
-        // dd($request->all());
+        
+        //dd($request->all());
 
         Attendance::create([
             //table field name| input field name

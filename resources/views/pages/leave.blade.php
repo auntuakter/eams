@@ -38,7 +38,7 @@
           @endif
 </td>
 @if($leave->status!=1)
-<td><form action="{{route('update.status',$leave->user_id)}}" method="POST">
+<td><form action="{{route('update.status',$leave->id)}}" method="POST">
           @csrf
           @if(auth()->user()->role=='admin')
           <div class="form-group">

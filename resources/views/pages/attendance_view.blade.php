@@ -37,6 +37,15 @@
 
         <th scope ="row">{{$key+1}}</th>
       <td>{{$attendance->employee_id}}</td>
+@if($attendance->status=='leave')
+<td>{{date('Y-m-d',strtotime($attendance->date))}}</td>
+<td>-</td>
+<td>-</td>
+<td>Leave</td>
+
+
+@else
+
       <td>{{date('Y-m-d',strtotime($attendance->check_in))}}</td>
       <td>{{date('h:i:s A',strtotime($attendance->check_in))}}</td>
       <!-- <td>{{date('Y-m-d',strtotime($attendance->check_out))}}</td> -->
@@ -66,7 +75,7 @@
 
             </td>
 
-
+@endif
         </tr>
         @endforeach
 
