@@ -33,6 +33,7 @@
 <td>
 @if ($leave->status==0)
             <a class="btn btn-warning" href="#">Pending</a>
+            
 @else($leave->status==1)
           <a class="btn btn-success" href="#">Approved</a>
           @endif

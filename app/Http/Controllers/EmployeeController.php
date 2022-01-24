@@ -38,9 +38,7 @@ class EmployeeController extends Controller
     public function employee_add()
     {
         $departments=Department::all();
-        $designations=Designation::all();
-       
-        // take one variable and compact as designation 
+        $designations=Designation::all(); 
         return view('pages.employee_add',compact('departments','designations'));
         
        
@@ -76,8 +74,8 @@ class EmployeeController extends Controller
             'address'=>'required',
             'department_id'=>'required',
             'gender'=>'required',
-            'joined_on'=>'required|date',
-            'contact_no'=>'required|min:11|max:11',
+            'joined_on'=>'required',
+            'contact_no'=>'required|max:11',
         ]);
 
 
@@ -86,10 +84,14 @@ class EmployeeController extends Controller
             'name'=>$request->name,
              'email'=>$request->email,
              'password'=>bcrypt($request->password),
+             'address'=>$request->address,
+             'gender'=>$request->gender,
+             'joined_on'=>$request->joined_on,
+             'contact_no'=>$request->contact_no,
             'image'=>$image_name
 
         ]);
-        // dd($user);
+        //dd($user);
         // dd($request->image);
 
          Employee::create([
@@ -122,7 +124,7 @@ class EmployeeController extends Controller
             //       object= first(), find(), findOrFail(),======direct
                   $employee=Employee::find($employee_id);
                 //   dd($employee);
-            //      $product=Product::where('id',$product_id)->first();
+            
                     return view('pages.employee_details', compact('employee'));
                 }
      }

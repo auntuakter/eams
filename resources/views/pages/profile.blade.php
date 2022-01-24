@@ -6,7 +6,7 @@
 <style>
     body {
         /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
-        background-color: red;
+        background-color: fff;
     }
 
     .emp-profile {
@@ -145,6 +145,7 @@
 <h1>My Profile </h1>
 
 <div class="container emp-profile">
+    @foreach($profiles as $profile)
     <form  action="{{route('profile.update',$profile->id)}}" method="post" enctype="multipart/form-data">
       @csrf
          @method("put") 
@@ -194,7 +195,7 @@
                         <label for="inputDepartment3" class="col-sm-2 col-form-label">Department</label>
                         <div class="col-sm-10">
                             <input name="department" type="department" class="form-control" id="inputDepartment3"
-                                value="{{$profile->department}}" placeholder="Department">
+                                value="{{$profile->department->department_name}}" placeholder="Department">
                         </div>
                     </div>
 
@@ -202,7 +203,7 @@
                         <label for="inputDesignation3" class="col-sm-2 col-form-label">Designation</label>
                         <div class="col-sm-10">
                             <input name="designation" type="designation" class="form-control" id="inputDesignation3"
-                                value="{{$profile->designation}}" placeholder="Designation">
+                                value="{{$profile->designation->designation}}" placeholder="Designation">
                         </div>
                     </div>
 
@@ -240,7 +241,7 @@
                     </div>
                     <button type="submit" class="btn btn-info"> update</button>
   </form>
-
+@endforeach
 
 
                     @endsection

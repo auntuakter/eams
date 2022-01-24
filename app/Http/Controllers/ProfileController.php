@@ -12,9 +12,11 @@ class ProfileController extends Controller
 {
     public function profile(){
         // return view('pages.profile');
-
-    $profile = User::find(Auth::user()->id);
-    return view('pages.profile', compact('profile'));
+$user = User::find(auth()->user()->id);
+// dd($user->id);
+    $profiles = Employee::with('user')->where('user_id',$user->id)->get();
+    // dd($profile);
+    return view('pages.profile', compact('profiles'));
 
     }
 
@@ -32,10 +34,10 @@ class ProfileController extends Controller
     //update
     public function update($id,Request $request)
     {
-    // dd($request->all());
+    //  dd($request->all());
         // dd($id);
        
-        $profile=Employee::find($id);
+        $profile=User::find($id);
     //    dd($profile);
 
         
@@ -56,13 +58,17 @@ class ProfileController extends Controller
         $profile->update([
              'name'=>$request->name,
              'address'=>$request->address,
-             'department'=>$request->department,
              'gender'=>$request->gender,
              'contact_no'=>$request->contact_no,
              'image'=>$image_name,
+        ]);
+        $employee = Employee::where('user_id',$profile->id)->update([
 
-            
-            
+            'name'=>$request->name,
+            'address'=>$request->address,
+            'gender'=>$request->gender,
+            'contact_no'=>$request->contact_no,
+            'image'=>$image_name,
         ]);
         return redirect()->back()->with('success','Updates Successfully.');
     }
