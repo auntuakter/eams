@@ -14,6 +14,7 @@ use App\Http\Controllers\SallaryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -98,7 +99,7 @@ Route::get('/leave',[LeaveController::class,'leave'])->name('leave');
 Route::get('/apply_leave',[LeaveController::class,'apply_leave'])->name('apply_leave');
 Route::post('/leave/store',[LeaveController::class,'store'])->name('leave.store');
 Route::post('leave/update/status/{leave_id}',[LeaveController::class,'UpdateStatus'])->name('update.status');
-
+Route::get('leave/cancel/{leave_id}',[LeaveController::class,'leaveCancel'])->name('admin.leave.cancel');
 
 Route::get('/leave_type',[Leave_typeController::class,'leave_type'])->name('leave_type');
 Route::get('/leave_type_add',[Leave_typeController::class,'leave_type_add'])->name('leave_type_add');
@@ -120,6 +121,9 @@ Route::post('/sallary/store',[SallaryController::class,'store'])->name('sallary.
 Route::get('/profile',[ProfileController::class,'profile'])->name('profile');
 Route::get('/profile/edit{profile_id}',[ProfileController::class,'edit'])->name('profile.edit');
 Route::put('/profile/update/{profile_id}',[ProfileController::class,'update'])->name('profile.update');
+
+
+Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
 
 
 });

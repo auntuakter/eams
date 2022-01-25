@@ -34,23 +34,34 @@
 @if ($leave->status==0)
             <a class="btn btn-warning" href="#">Pending</a>
             
-@else($leave->status==1)
+@elseif($leave->status==1)
           <a class="btn btn-success" href="#">Approved</a>
+
+          <!-- Deny Request -->
+          @else($leave->status ==2)
+          <a class="btn btn-success" href="">Deny</a>
+
           @endif
+
+
+          
+
+
 </td>
 @if($leave->status!=1)
 <td><form action="{{route('update.status',$leave->id)}}" method="POST">
           @csrf
           @if(auth()->user()->role=='admin')
           <div class="form-group">
+            <td>
             <button type="submit" class="btn btn-primary" name="status" value="1">Approve</button>
+            @if($leave->status!=2)
+            <a href="{{route('admin.leave.cancel',$leave->id)}}" class="btn btn-primary">Cancel</a>   
+            @endif
         </form>
         </td>
         @endif
 @endif
-<!-- @if(auth()->user()->role=='admin')
-
-@endif -->
 </tr>
 @endforeach
  

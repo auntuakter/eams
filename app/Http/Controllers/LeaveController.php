@@ -37,7 +37,8 @@ class LeaveController extends Controller
             ]);
             return redirect()->back();
         }
-        //
+        //Leave Request Update
+        
          public function UpdateStatus($leave_id)
         {
           
@@ -75,6 +76,15 @@ class LeaveController extends Controller
          return redirect()->back();
         }
      
-
+        public function leaveCancel($id){
+            // dd($id);
+            $leave = Leave::find($id);
+            if ($leave) {
+                $leave->update([
+                    'status'=>'2'
+                ]);
+                return redirect()->back();
+            }
+        }
         
 }

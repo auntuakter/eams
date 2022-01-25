@@ -21,6 +21,7 @@ class CreateLeavesTable extends Migration
             $table->date('from');
             $table->date('to');
             $table->string('status')->default('0');
+            
 
             $table->timestamps();
         });

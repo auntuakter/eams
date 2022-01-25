@@ -4,7 +4,7 @@
 <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
       <!-- Brand -->
-      <h1 style="color:#11cdef;">EAMS </h1>
+      <h1 style="color:#172b4d;">EAMS </h1>
        <!-- <div class="sidenav-header  align-items-center">
         <a class="navbar-brand" href="javascript:void(0)">
           <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
@@ -17,7 +17,7 @@
           <ul class="navbar-nav">
             @if(auth()->user()->role=='admin')
             <li class="nav-item">
-              <a class="nav-link active" href="dashboard.html">
+              <a class="nav-link active" href="{{route('dashboard')}}">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>

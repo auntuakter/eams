@@ -25,7 +25,7 @@ class AttendanceController extends Controller
         
         
        $todayData= Attendance::where('employee_id',auth()->user()->id)->whereDate('created_at',now())->first();
-if(empty($todayData))
+       if(empty($todayData))
 {
     Attendance::create([
         'employee_id'=>auth()->user()->id,
@@ -38,9 +38,9 @@ if(empty($todayData))
        
     return view('pages.attendance_check',compact('attendances'));
 }
-$attendances = Attendance::all();
+    $attendances = Attendance::all();
        
-return view('pages.attendance_check',compact('attendances'));
+    return view('pages.attendance_check',compact('attendances'));
     
 
      }
@@ -109,9 +109,9 @@ return view('pages.attendance_check',compact('attendances'));
        
       return view('pages.attendance_view',compact('attendances'));
  }
-     $attendances = Attendance::all();
+      $attendances = Attendance::all();
        
-     return view('pages.attendance_view',compact('attendances'));
+      return view('pages.attendance_view',compact('attendances'));
     
 
      }
