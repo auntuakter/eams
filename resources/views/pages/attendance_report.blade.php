@@ -24,7 +24,7 @@
     @endforeach 
   </select>
 
-  <label for="months">Month:</label>
+  <!-- <label for="months">Month:</label>
   <select name="months" id="months">
     <option value="january">January</option>
     <option value="february">February</option>
@@ -40,10 +40,9 @@
     <option value="december">December/option>
 
     
-  </select>
+  </select> -->
 
-
-  
+<!--    
 <label for="years">Year:</label>
   <select name="years" id="years">
     <option value="2010">2010</option>
@@ -58,12 +57,12 @@
     <option value="2010">2019</option>
     <option value="2010">2020</option>
     <option value="2010">2021</option>
-    <option value="2010">2022</option>
+    <option value="2010">2022</option> 
     
 
    
     
-  </select> 
+  </select>  -->
   <br>
 
 <button class="btn btn-success" type="submit">Submit</button>
@@ -83,7 +82,7 @@ $last_day_this_month  = date('t');
 
 
 
-<h1>Attendance List</h1>
+<h1>Attendance Report</h1>
 
 <table class="table table-dark" action="{{route('attendance_report')}}" method='POST'>
 @csrf
@@ -101,6 +100,7 @@ $last_day_this_month  = date('t');
     <tbody>
        @php 
        $total_present=0;
+       $total_leave=0;
        @endphp
     @for($i=1; $i<=$last_day_this_month; $i++)
 
@@ -115,12 +115,23 @@ $last_day_this_month  = date('t');
         <th scope ="row">{{$i}}</th>
         <th scope ="row">{{$date}}</th>
         @foreach($attendances as $data)
+        
        
-                @if($i==date('d',strtotime($data->check_in)))
-
+                @if($i==date('d',strtotime($data->date)))
+           
                 @php
                 $is_matched=true;
-                $total_present++;
+                if($data->status!='leave')
+                {
+                  $total_present++;
+                }
+
+                if($data->status=='leave')
+                {
+                  $total_leave++;
+                }
+                
+             
                 
                 @endphp
 
@@ -128,7 +139,7 @@ $last_day_this_month  = date('t');
                 <!-- <td>{{date('h:i:s A',strtotime($data->check_in))}}</td> -->
                
                  <td>{{$data->check_out}}</td> 
-                <td>Present</td>
+                <td>{{$data->status}}</td>
                 @endif
         @endforeach
 
@@ -147,6 +158,7 @@ $last_day_this_month  = date('t');
 </table>
 
 <h1>Total Present :{{$total_present}}</h1>
+<h1>Total Leave :{{$total_leave}}</h1>
 
 @else
 <h3>please select an employee</h3>

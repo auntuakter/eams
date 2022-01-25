@@ -37,7 +37,7 @@ $user = User::find(auth()->user()->id);
     //  dd($request->all());
         // dd($id);
        
-        $profile=User::find($id);
+        $profile=Employee::find($id);
     //    dd($profile);
 
         
@@ -62,8 +62,7 @@ $user = User::find(auth()->user()->id);
              'contact_no'=>$request->contact_no,
              'image'=>$image_name,
         ]);
-        $employee = Employee::where('user_id',$profile->id)->update([
-
+        $employee = User::where('id',$profile->user_id)->update([
             'name'=>$request->name,
             'address'=>$request->address,
             'gender'=>$request->gender,
