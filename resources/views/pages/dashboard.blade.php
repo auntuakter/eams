@@ -82,10 +82,10 @@
                 <div class="card-box bg-blue">
                     <div class="inner">
                         <h3> {{$employee}} </h3>
-                        <p> Number of employee </p>
+                        <p> Number Of Employee </p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
                     </div>
                     <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
@@ -98,7 +98,7 @@
                         <p> Number of Departmetn</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-money" aria-hidden="true"></i>
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
                     </div>
                     <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
@@ -116,7 +116,7 @@
                 </div>
             </div>
             
-            <div class="col-lg-3 col-sm-6">
+            <!-- <div class="col-lg-3 col-sm-6">
                 <div class="card-box bg-orange">
                     <div class="inner">
                         <h3> 5464 </h3>
@@ -141,6 +141,6 @@
                     <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-        </div>
+        </div> -->
 </div>
 @endsection

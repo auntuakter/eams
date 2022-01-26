@@ -13,10 +13,18 @@ class LeaveController extends Controller
 {
     public function leave(){
         // return view('pages.leave');
+        // dd(auth()->user());
+        if (auth()->user()->role == "admin") {
+            $leaves = Leave::all();
+            return view('pages.leave',compact('leaves'));
+        }else {
+            $leaves = Leave::where('user_id',auth()->user()->id)->get();
+            // dd($leaves);
+            return view('pages.leave',compact('leaves'));
+        }
 
-        $leaves = Leave::all();
-        // dd($leaves);
-        return view('pages.leave',compact('leaves'));
+        //Specific user can see his/her leave
+       
     }
     public function  Apply_leave(){
         return view('pages.apply_leave');
@@ -29,7 +37,6 @@ class LeaveController extends Controller
             'leave_type'=>$request->leave_type,
             'description'=>$request->description,
             'user_id'=> Auth::user()->id,
-            // 'leave_id' => Auth::leave()->id,
             'from'=>$request->from,
             'to'=>$request->to
 

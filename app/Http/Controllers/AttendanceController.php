@@ -121,7 +121,7 @@ class AttendanceController extends Controller
 
     public function attendance_report()
     {
-        // dd(request()->all());
+        //dd(request()->all());
 
         if(request()->has('employees'))
         {

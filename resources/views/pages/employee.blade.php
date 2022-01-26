@@ -54,7 +54,8 @@
     <tr>
 
       <th scope ="row">{{$key+1}}</th>
-      <td>{{$employee->name}} "---" {{$employee->id}}</td>
+      <!-- <td>{{$employee->name}} "---" {{$employee->id}}</td> -->
+      <td>{{$employee->name}}</td>
       <td>{{$employee->email}}</td>
       <td>{{$employee->password}}</td>
       <!-- <td>{{$employee->address}}</td> -->

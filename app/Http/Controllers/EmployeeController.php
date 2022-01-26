@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\User;
-cccc
+use App\Models\Department;
 use App\Models\Designation;
 
 

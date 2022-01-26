@@ -6,7 +6,7 @@
     <h1>Leave Type</h1>
     
     <div class="form-group row">
-    <label for="inputLeave_type3" class="col-sm-2 col-form-label">Leave_type</label>
+    <label for="inputLeave_type3" class="col-sm-2 col-form-label">Leave Type</label>
     <div class="col-sm-10">
 
 <select name="leave_type" type="leave_type" class="form-control" id="inputLeave_type3" placeholder="Leave_type">
@@ -21,7 +21,7 @@
   
 
   <div class="form-group row">
-    <label for="inputDay_of_amount3" class="col-sm-2 col-form-label">Day_of_amount</label>
+    <label for="inputDay_of_amount3" class="col-sm-2 col-form-label">Day Of Amount</label>
     <div class="col-sm-10">
       <input name="day_of_amount" type="day_of-amount" class="form-control" id="inputDay_of_amount3" placeholder="Day_of_amount">
     </div>
