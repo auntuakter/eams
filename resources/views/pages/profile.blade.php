@@ -11,11 +11,12 @@
 
     .emp-profile {
         width: 100%;
+        height: 900px;
         padding: 5%;
         margin-top: 3%;
         margin-bottom: 3%;
         border-radius: 0.5rem;
-        background-color: #32325d;
+        background-color: #d8d8ed;
     }
 
     .profile-img {
@@ -27,9 +28,9 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-
-        width: 50%;
-        border-radius: 50%;
+        width: 200px;
+        height:200px;
+        border-radius: 20%;
 
     }
 
@@ -130,116 +131,116 @@
 </style>
 
 
-
-
-
-
-
-
-<!-- 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<!------ Include the above in your HEAD tag ---------->
-
-<h1>My Profile </h1>
-
 <div class="container emp-profile">
     @foreach($profiles as $profile)
     <form  action="{{route('profile.update',$profile->id)}}" method="post" enctype="multipart/form-data">
       @csrf
          @method("put") 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-12" style="margin: auto;">
                 <div class="profile-img">
-                    <img src="{{url('/employees/'.$profile->image)}}"
+                    <img class="center"src="{{url('/employees/'.$profile->image)}}" style="width: 200px; margin: auto;"
                         alt="" />
-                    <!-- <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div> -->
-                    <hr>
+    
+        
                 </div>
+                <hr>
             </div>
             <hr>
             <hr>
         </div>
 
 
-        <div class="col-md-8">
+
+
+       
             <div class="tab-content profile-tab" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div class="form-group row">
+                <div class="" style='display: flex; justify-content: space-between;'>
+                <div style="width: 40%;">
+                    <div class="form-group ">
                         <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10">
+                        
                             <input name="name" type="text" class="form-control" id="inputName3"
                                 value="{{$profile->name}}" placeholder="Name">
-                        </div>
+                      
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group ">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
+                       
                             <input readonly name="email" type="email" class="form-control" id="inputEmail3"
                                 value="{{$profile->email}}" placeholder="Email">
-                        </div>
+                        
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group ">
                         <label for="inputAddress3" class="col-sm-2 col-form-label">Address</label>
-                        <div class="col-sm-10">
+                        
                             <input name="address" type="address" class="form-control" id="inputAddress3"
                                 value="{{$profile->address}}" placeholder="Address">
-                        </div>
+                       
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group ">
                         <label for="inputDepartment3" class="col-sm-2 col-form-label">Department</label>
-                        <div class="col-sm-10">
+                      
                             <input name="department" type="department" class="form-control" id="inputDepartment3"
                                 value="{{$profile->department->department_name}}" placeholder="Department">
-                        </div>
+                       
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group ">
                         <label for="inputDesignation3" class="col-sm-2 col-form-label">Designation</label>
-                        <div class="col-sm-10">
+                       
                             <input name="designation" type="designation" class="form-control" id="inputDesignation3"
                                 value="{{$profile->designation->designation}}" placeholder="Designation">
-                        </div>
+                       
                     </div>
+    
+</div>
 
+<div style="width: 40%;">
 
-                    <div class="form-group row">
+                    <div class="form-group ">
                         <label for="inputGender3" class="col-sm-2 col-form-label">Gender</label>
-                        <div class="col-sm-10">
+                       
                             <input name="gender" type="gender" class="form-control" id="inputGender3"
                                 value="{{$profile->gender}}" placeholder="Gender">
-                        </div>
+                        
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group ">
                         <label for="inputJoined_on3" class="col-sm-2 col-form-label">Joined_on</label>
-                        <div class="col-sm-10">
+                      
                             <input name="joined_on" type="joined_on" class="form-control" id="inputJoined_on3"
                                 value="{{$profile->joined_on}}" placeholder="Joined_on">
-                        </div>
+                      
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="inputContact_no3" class="col-sm-2 col-form-label">Contact_no</label>
-                        <div class="col-sm-10">
+                       
                             <input name="contact_no" type="contact_no" class="form-control" id="inputContact_no3"
                                 value="{{$profile->contact_no}}" placeholder="Contact_no">
-                        </div>
+                                
+                       
                     </div>
 
 
-                    <div class="form-group row">
+                    <div class="form-group ">
                         <label for="inputImage3" class="col-sm-2 col-form-label">Image</label>
-                        <div class="col-sm-10">
+                       
                             <input name="image" type="file" class="form-control" id="inputImage"
                                 aria-describedby="emailHelp">
-                        </div>
+                        
                     </div>
+                    <br>
+                    <br>
                     <button type="submit" class="btn btn-info"> update</button>
+
+</div>
+                   
+</div>
+</div>
+
   </form>
 @endforeach
 

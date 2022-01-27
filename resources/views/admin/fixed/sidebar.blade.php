@@ -59,7 +59,9 @@
               <a class="nav-link" href="{{route('profile')}}">
                 <i class="ni ni-pin-3 text-primary"></i>
                 <i class="material-icons">person_pin</i>
+
                 <span class="nav-link-text">MY Profile</span>
+                
               </a>
             </li>
             @endif

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use App\Models\Leave;
 use App\Models\Employee;
+use App\Models\User;
 use App\Models\Attendance;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Notifications\LeaveNotification;
 
 
 class LeaveController extends Controller
@@ -54,6 +56,7 @@ class LeaveController extends Controller
           $data->update([
           'status'=>request()->status
          ]);
+         User::find($data->user_id)->notify(new LeaveNotification());
 
          if(request()->status=='1')
          {

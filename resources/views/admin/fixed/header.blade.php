@@ -20,7 +20,15 @@
               <span aria-hidden="true">×</span>
             </button> -->
 
+            @if(auth()->user()->role=='user')
+
             <div>
+              
+            <button type="submit" class="btn btn-primary">
+              Notifications <span class="badge badge-danger">{{Auth::user()->unreadnotifications()->count()}} </span> Your leave request accpect
+              
+            </button>
+            @endif
             <!-- <a href="{{route('admin.logout')}}" button type="button" class="btn btn-info">Info</button> -->
             <a href="{{route('admin.logout')}}"button type="button" class="btn btn-info" style="margin-left:950px;color:fff;position:relative;margin-lef">Logout</a>
             </div>
