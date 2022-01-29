@@ -183,7 +183,7 @@
                     <div class="form-group ">
                         <label for="inputDepartment3" class="col-sm-2 col-form-label">Department</label>
                       
-                            <input name="department" type="department" class="form-control" id="inputDepartment3"
+                            <input  readonly name="department" type="department" class="form-control" id="inputDepartment3"
                                 value="{{$profile->department->department_name}}" placeholder="Department">
                        
                     </div>
@@ -191,7 +191,7 @@
                     <div class="form-group ">
                         <label for="inputDesignation3" class="col-sm-2 col-form-label">Designation</label>
                        
-                            <input name="designation" type="designation" class="form-control" id="inputDesignation3"
+                            <input  readonly name="designation" type="designation" class="form-control" id="inputDesignation3"
                                 value="{{$profile->designation->designation}}" placeholder="Designation">
                        
                     </div>
@@ -210,7 +210,7 @@
                     <div class="form-group ">
                         <label for="inputJoined_on3" class="col-sm-2 col-form-label">Joined_on</label>
                       
-                            <input name="joined_on" type="joined_on" class="form-control" id="inputJoined_on3"
+                            <input  readonly name="joined_on" type="joined_on" class="form-control" id="inputJoined_on3"
                                 value="{{$profile->joined_on}}" placeholder="Joined_on">
                       
                     </div>

@@ -94,24 +94,60 @@ class AttendanceController extends Controller
 
 
      //Attendance View
-     public function attendance_view(){
+    public function attendance_view(){
 
         // return view('pages.attendance_view');
 
         // auth()->user()->id;
+        // dd(auth()->user());
         
-        
-     $todayData= Attendance::where('employee_id',auth()->user()->id)->whereDate('created_at',now())->first();
-     if(empty($todayData))
-    {
+        if (auth()->user()->role == "admin") {
+               
+            $todayData= Attendance::where('employee_id',auth()->user()->id)->whereDate('created_at',now())->first();
+            if(empty($todayData))
+            {
 
-      $attendances = Attendance::all();
+                $attendances = Attendance::all();
+                
+                return view('pages.attendance_view',compact('attendances'));
+            }
+            else {
+                $attendances = Attendance::all();
+                
+                return view('pages.attendance_view',compact('attendances'));
+            }
+        } else {
+            //    dd("else");
+            $todayData= Attendance::where('employee_id',auth()->user()->id)->whereDate('created_at',now())->first();
+            // dd($todayData);
+            if(empty($todayData))
+            {
+                $employee_id = Employee::where('user_id',auth()->user()->id)->first();
+                dd($employee_id);
+                $attendances = Attendance::where('employee_id',$employee_id)->get();
+            
+                return view('pages.attendance_view',compact('attendances'));
+            }
+            else {
+                $employee_id = Employee::where('user_id',auth()->user()->id)->first();
+                // dd($employee_id);
+                $attendances = Attendance::where('employee_id',$employee_id->id)->get();
+                // dd($attendances);
+                return view('pages.attendance_view',compact('attendances'));
+            }
+        }
+        
+//      $todayData= Attendance::where('employee_id',auth()->user()->id)->whereDate('created_at',now())->first();
+//      if(empty($todayData))
+//     {
+
+//       $attendances = Attendance::all();
        
-      return view('pages.attendance_view',compact('attendances'));
- }
-      $attendances = Attendance::all();
+//       return view('pages.attendance_view',compact('attendances'));
+//  }
+    //   $attendances = Attendance::all();
        
-      return view('pages.attendance_view',compact('attendances'));
+    //   return view('pages.attendance_view',compact('attendances'));
     
 
      }

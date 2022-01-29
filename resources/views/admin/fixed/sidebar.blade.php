@@ -74,7 +74,7 @@
             </li>
 
 
-
+            @if(auth()->user()->role=='admin')
             <li class="nav-item">
               <a class="nav-link" href="{{route('attendance_report')}}">
                 <i class="ni ni-pin-3 text-primary"></i>
@@ -83,7 +83,7 @@
               </a>
             </li>
 
-    
+            @endif
             
             <li class="nav-item">
               <a class="nav-link" href="{{route('leave_type')}}">
@@ -122,7 +122,7 @@
               </a>
             </li>
           
-          
+<!--           
             @if(auth()->user()->role=='admin')
 
  
@@ -135,13 +135,13 @@
             </li>
 
             
-            <!-- <li class="nav-item">
+             <li class="nav-item">
               <a class="nav-link" href="{{route('sallary')}}">
                 <i class="ni ni-circle-08 text-pink"></i>
                 <span class="nav-link-text">Sallary</span>
               </a>
-            </li> -->
-            @endif
+            </li>
+            @endif -->
 
             
             

@@ -11,7 +11,7 @@
 
 <p style="margin-left:200px;">Employee Name: {{$employee->name}}</p>
 <p style="margin-left:200px;">Email: {{$employee->email}}</p>
-<p style="margin-left:200px;">Password: {{$employee->password}}</p>
+<!-- <p style="margin-left:200px;">Password: {{$employee->password}}</p> -->
 <p style="margin-left:200px;">Address: {{$employee->address}}</p>
 <p style="margin-left:200px;">Department: {{$employee->department->department_name}}</p>
 <p style="margin-left:200px;">Designation: {{$employee->designation->designation}}</p>

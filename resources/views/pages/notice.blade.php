@@ -35,6 +35,7 @@
 
   </tbody>
 </table>
+<br>
 
 @if(auth()->user()->role=='admin')
 

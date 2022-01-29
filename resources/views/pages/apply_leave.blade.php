@@ -38,7 +38,10 @@
   <div class="form-group row">
   <label for="inputfrom3" class="col-sm-2 col-form-label">From:</label>
   <div class="col-sm-10">
-  <input name="from" type="date" class="form_control" id="from3" placeholder="From">
+  <!-- <input name="from" type="date" class="form_control" id="from3" placeholder="From"> -->
+  <input required type="date" value="{{ date('Y-m-d') }}"
+                                        min="{{ date('Y-m-d') }}" class="form-control"
+                                        id="purchase_date" name="from">
 </div>
 </div>
 

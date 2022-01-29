@@ -20,14 +20,14 @@
      <th scope ="row">{{$key+1}}</th>
        <td>{{$leave_type->leave_type}}</td>
         <td>{{$leave_type->day_of_amount}}</td>
-         <td>{{$leave_type->status}}</td>
+        <td>
+           <a class="btn btn-success" href="">Active</a>
+       </td>
+      
+         <!-- <td>{{$leave_type->status}}</td> -->
           <td>{{$leave_type->description}}</td>
 
-  <!-- <td>
-      <a class="btn btn-success" href="">View</a>
-     <a class="btn btn-danger" href="">Delete</a>  -->
-    <!-- <a class="btn btn-warning" href="">Edit</a>
-  </td> -->
+   
   
 </tr>
 @endforeach

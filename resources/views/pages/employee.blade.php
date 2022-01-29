@@ -39,7 +39,7 @@
       <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
-      <th scope="col">Password</th>
+      <!-- <th scope="col">Password</th> -->
       <!-- <th scope="col">Address</th> -->
       <th scope="col">Department</th>
       <!-- <th scope="col">Gender</th>
@@ -57,14 +57,9 @@
       <!-- <td>{{$employee->name}} "---" {{$employee->id}}</td> -->
       <td>{{$employee->name}}</td>
       <td>{{$employee->email}}</td>
-      <td>{{$employee->password}}</td>
+      <!-- <td>{{$employee->password}}</td> -->
       <!-- <td>{{$employee->address}}</td> -->
       <td>{{$employee->department->department_name}}</td>
-      
-      
-      <!-- <td>{{$employee->gender}}</td>
-      <td>{{$employee->joined_on}}</td>
-      <td>{{$employee->contact_no}}</td> -->
 
       <td>
         <img style="border-radius: 4px;" width="100px;" src="{{url('/employees/'.$employee->image)}}" alt="no image">
