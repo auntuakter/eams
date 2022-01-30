@@ -124,6 +124,7 @@ Route::put('/profile/update/{profile_id}',[ProfileController::class,'update'])->
 
 
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
+Route::get('/notification_seen',[LeaveController::class,'notification'])->name('notification_seen');
 
 
 });

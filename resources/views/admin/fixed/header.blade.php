@@ -23,13 +23,11 @@
             @if(auth()->user()->role=='user')
 
             <div>
-              
-            <button type="submit" class="btn btn-primary">
-              Notifications <span class="badge badge-danger">{{Auth::user()->unreadnotifications()->count()}} </span> Your leave request accpect
-              
-            </button>
+
+            <a class="btn btn-info" href="{{route('notification_seen')}}">Notifications <span class="badge badge-danger">{{Auth::user()->unreadnotifications()->count()}} </span> Your request has been approved
+                </a>
             @endif
-            <!-- <a href="{{route('admin.logout')}}" button type="button" class="btn btn-info">Info</button> -->
+            
             <a href="{{route('admin.logout')}}"button type="button" class="btn btn-info" style="margin-left:950px;color:fff;position:relative;margin-lef">Logout</a>
             </div>
 

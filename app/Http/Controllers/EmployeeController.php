@@ -111,7 +111,7 @@ class EmployeeController extends Controller
              'image'=>$image_name,
              ]);
         
-        return redirect()->back()->with('success','Profile Created Successfully.');
+        return redirect()->route('employee')->with('success','Profile Created Successfully.');
      }
     
      //view

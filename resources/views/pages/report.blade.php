@@ -5,7 +5,7 @@
 <h1> Report</h1>
 
 
-<table class="table">
+ <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -34,7 +34,7 @@
       <td>@twitter</td>
     </tr>
   </tbody>
-</table>
+</table> 
 </div>
 <!-- print -->
 <button class="btn btn-primary" type="submit" onClick="PrintDiv('ToPrint');" value="Print">Print</button>

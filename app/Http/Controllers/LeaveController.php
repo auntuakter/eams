@@ -16,6 +16,7 @@ class LeaveController extends Controller
     public function leave(){
         // return view('pages.leave');
         // dd(auth()->user());
+        //Specific user can see his/her leave
         if (auth()->user()->role == "admin") {
             $leaves = Leave::all();
             return view('pages.leave',compact('leaves'));
@@ -25,7 +26,7 @@ class LeaveController extends Controller
             return view('pages.leave',compact('leaves'));
         }
 
-        //Specific user can see his/her leave
+        
        
     }
     public function  Apply_leave(){
@@ -44,7 +45,7 @@ class LeaveController extends Controller
 
             
             ]);
-            return redirect()->back();
+            return redirect()->route('leaves');
         }
         //Leave Request Update
         
@@ -56,7 +57,11 @@ class LeaveController extends Controller
           $data->update([
           'status'=>request()->status
          ]);
+
+         //Leave Notification
          User::find($data->user_id)->notify(new LeaveNotification());
+
+         //Approve
 
          if(request()->status=='1')
          {
@@ -85,6 +90,8 @@ class LeaveController extends Controller
          
          return redirect()->back();
         }
+
+        //cancel leave
      
         public function leaveCancel($id){
             // dd($id);
@@ -95,6 +102,16 @@ class LeaveController extends Controller
                 ]);
                 return redirect()->back();
             }
+
+        
+        }
+
+
+          //Notification Read
+        public function notification()
+        {
+            Auth::user()->unreadnotifications->markAsRead();
+            return redirect()->route('leave');
         }
         
 }

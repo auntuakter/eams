@@ -123,7 +123,7 @@ class AttendanceController extends Controller
             if(empty($todayData))
             {
                 $employee_id = Employee::where('user_id',auth()->user()->id)->first();
-                dd($employee_id);
+                //dd($employee_id);
                 $attendances = Attendance::where('employee_id',$employee_id)->get();
             
                 return view('pages.attendance_view',compact('attendances'));

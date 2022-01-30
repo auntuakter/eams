@@ -26,7 +26,7 @@ class DesignationController extends Controller
             
             
             ]);
-            return redirect()->back();
+            return redirect()->route('designation');
         }
 
         //delete

@@ -29,7 +29,7 @@ class Leave_typeController extends Controller
 
             
             ]);
-            return redirect()->back();
+            return redirect()->route('leave_type');
      }
 
 }

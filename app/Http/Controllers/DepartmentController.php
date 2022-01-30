@@ -27,7 +27,7 @@ class DepartmentController extends Controller
             'department_name'=>$request->department_name
             
             ]);
-            return redirect()->back();
+            return redirect()->route('department');
      }
 
 

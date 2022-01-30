@@ -54,8 +54,8 @@
           @if(auth()->user()->role=='admin')
           <div class="form-group">
             <td>
-            <button type="submit" class="btn btn-primary" name="status" value="1">Approve</button>
             @if($leave->status!=2)
+            <button type="submit" class="btn btn-primary" name="status" value="1">Approve</button>
             <a href="{{route('admin.leave.cancel',$leave->id)}}" class="btn btn-primary">Cancel</a>   
             @endif
         </form>

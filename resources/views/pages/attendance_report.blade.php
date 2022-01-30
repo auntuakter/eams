@@ -81,7 +81,10 @@ $last_day_this_month  = date('t');
 @endphp
 
 
-
+  
+<!-- print -->
+<div id="ToPrint">
+<!-- print -->
 <h1>Attendance Report</h1>
 
 <table class="table table-dark" action="{{route('attendance_report')}}" method='POST'>
@@ -164,5 +167,22 @@ $last_day_this_month  = date('t');
 <h3>please select an employee</h3>
 
 @endif
+
+
+<!-- print -->
+         </div>
+
+         <button class="btn btn-primary" type="submit" onClick="PrintDiv('ToPrint');" value="Print">Print</button>
+
+            <script language="javascript">
+                 function PrintDiv(divName) 
+                 {
+                 var printContents = document.getElementById(divName).innerHTML;
+                 var originalContents = document.body.innerHTML;
+                 document.body.innerHTML = printContents;
+                 window.print();
+                 document.body.innerHTML = originalContents;
+                 }
+      </script>
 
 @endsection
