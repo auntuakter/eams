@@ -124,14 +124,14 @@ class AttendanceController extends Controller
             {
                 $employee_id = Employee::where('user_id',auth()->user()->id)->first();
                 //dd($employee_id);
-                $attendances = Attendance::where('employee_id',$employee_id)->get();
-            
+                $attendances = Attendance::where('employee_id',$employee_id->user_id)->get();
+            // dd($attendances);
                 return view('pages.attendance_view',compact('attendances'));
             }
             else {
                 $employee_id = Employee::where('user_id',auth()->user()->id)->first();
                 // dd($employee_id);
-                $attendances = Attendance::where('employee_id',$employee_id->id)->get();
+                $attendances = Attendance::where('employee_id',$employee_id->user_id)->get();
                 // dd($attendances);
                 return view('pages.attendance_view',compact('attendances'));
             }

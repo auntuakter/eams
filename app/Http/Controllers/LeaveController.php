@@ -45,7 +45,7 @@ class LeaveController extends Controller
 
             
             ]);
-            return redirect()->route('leaves');
+            return redirect()->route('leave');
         }
         //Leave Request Update
         

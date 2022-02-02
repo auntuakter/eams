@@ -109,8 +109,8 @@
     <label for="inputGender3" class="col-sm-2 col-form-label">Gender</label>
     <div class="col-sm-10">
     <select name="gender" type="text" class="form-control" id="inputgender3" placeholder="Gender">
-    <option value="volvo">Male</option>
-    <option value="volvo">Female</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
 </select>
     <!-- <input name="gender" type="gender" class="form-control" id="inputGender3" placeholder="Gender"> -->
     </div>
