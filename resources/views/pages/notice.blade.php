@@ -42,6 +42,6 @@
 <a href="{{route('notice_add')}}" class="btn btn-secondary" type="button">Add New Notice</a>
 @endif
 
-<p> This is notify to everyone that tomorrow(22-01-22),our Company will closed due to some reason.This is notify to everyone that tomorrow(22-01-22),our Company will closed due to some reason.This is notify to everyone that tomorrow(22-01-22),our Company will closed due to some reason.This is notify to everyone that tomorrow(22-01-22),our Company will closed due to some reason.</p>
+<p> This is notify to everyone that tomorrow(21-02-22),our Company will closed due to some reason.This is notify to everyone that tomorrow(21-02-22),our Company will closed due to some reason.This is notify to everyone that tomorrow(21-02-22),our Company will closed due to some reason.This is notify to everyone that tomorrow(21-02-22),our Company will closed due to some reason.</p>
 
 @endsection

@@ -16,7 +16,7 @@ class AdminController extends Controller
     $userpost = $request->except('_token','remember');
     //dd($userpost);
     if (Auth::attempt($userpost)) {
-      
+
             if(Auth::user()->role=='admin'|| Auth::user()->role=='user')
             {
                 return redirect()->route('admin.dashboard');
@@ -26,7 +26,7 @@ class AdminController extends Controller
 
                 return redirect()->back();
                 //cut the dd and add user route here
-                
+
             }
         }
         return redirect()->back()->with('error','invalid credentials.');
@@ -36,5 +36,18 @@ class AdminController extends Controller
         Auth::logout();
         return redirect()->route('admin.login')->with('message','Loging out.');
     }
+
+    public function generatePDF()
+    {
+        $data=[
+            'title' => 'Welcome to my page',
+            'date' => date('m/d/Y')
+        ];
+
+        $pdf = Admin::loadView('myPDF', $data);
+
+        return $pdf->download('abc.pdf');
+    }
+
 
 }

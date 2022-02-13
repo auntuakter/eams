@@ -27,21 +27,21 @@ class EmployeeController extends Controller
         return view('pages.employee',compact('employees','key'));
     }
 
-    
+
     // {
     //     $employees = Employee::all();
     //     // dd($employees);
     //     return view('pages.employee',compact('employees'));
-      
+
     // }
 
     public function employee_add()
     {
         $departments=Department::all();
-        $designations=Designation::all(); 
+        $designations=Designation::all();
         return view('pages.employee_add',compact('departments','designations'));
-        
-       
+
+
     }
 
      public function store(Request $request){
@@ -63,7 +63,7 @@ class EmployeeController extends Controller
                      $request->file('image')->storeAs('/employees',$image_name);
 
                  }
-        
+
 
         // For validation
 
@@ -110,10 +110,10 @@ class EmployeeController extends Controller
              'contact_no'=>$request->contact_no,
              'image'=>$image_name,
              ]);
-        
+
         return redirect()->route('employee')->with('success','Profile Created Successfully.');
      }
-    
+
      //view
      public function view($employee_id)
      {
@@ -124,7 +124,7 @@ class EmployeeController extends Controller
             //       object= first(), find(), findOrFail(),======direct
                   $employee=Employee::find($employee_id);
                 //   dd($employee);
-            
+
                     return view('pages.employee_details', compact('employee'));
                 }
      }
@@ -167,11 +167,11 @@ class EmployeeController extends Controller
                          {
                              // step 2: generate file name
                              $image_name=date('Ymdhis') .'.'. $request->file('image')->getClientOriginalExtension();
-        
+
                              //step 3 : store into project directory
-        
+
                              $request->file('image')->storeAs('/employees',$image_name);
-        
+
                          }
         $employee->update([
             'name'=>$request->name,
@@ -183,10 +183,10 @@ class EmployeeController extends Controller
              'joined_on'=>$request->joined_on,
              'contact_no'=>$request->contact_no,
              'image'=>$image_name,
-            
+
         ]);
         return redirect()->back();
     }
-    
-    
+
+
 }

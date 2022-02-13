@@ -1,6 +1,7 @@
 @extends('main')
 @section('content')
-<div id="ToPrint">
+
+<div>
 
 <h1> Report</h1>
 
@@ -34,18 +35,10 @@
       <td>@twitter</td>
     </tr>
   </tbody>
-</table> 
+</table>
 </div>
 <!-- print -->
-<button class="btn btn-primary" type="submit" onClick="PrintDiv('ToPrint');" value="Print">Print</button>
+<button class="btn btn-primary" type="submit" value="Print">Print</button>
 
-<script language="javascript">
-      function PrintDiv(divName) {
-          var printContents = document.getElementById(divName).innerHTML;
-          var originalContents = document.body.innerHTML;
-          document.body.innerHTML = printContents;
-          window.print();
-          document.body.innerHTML = originalContents;
-      }
-      </script>
+
 @endsection

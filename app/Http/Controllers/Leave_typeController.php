@@ -27,7 +27,7 @@ class Leave_typeController extends Controller
             'status'=>$request->status,
             'description'=>$request->description,
 
-            
+
             ]);
             return redirect()->route('leave_type');
      }

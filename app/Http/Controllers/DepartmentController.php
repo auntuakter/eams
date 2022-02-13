@@ -8,7 +8,7 @@ use App\Models\Department;
 class DepartmentController extends Controller
 {
     public function Department(){
-        $departments = Department::all();
+       $departments = Department::all();
         // dd($departments);
     //    return view('pages.department');
        return view('pages.department',compact('departments'));
@@ -25,7 +25,7 @@ class DepartmentController extends Controller
            //  'type'=>$request->type,
             'department_code'=>$request->department_code,
             'department_name'=>$request->department_name
-            
+
             ]);
             return redirect()->route('department');
      }
@@ -43,7 +43,7 @@ class DepartmentController extends Controller
 
     public function edit($id)
     {
-        
+
         $department=Department::find($id);
 
         return view('pages.department_update',compact('department'));
@@ -55,23 +55,23 @@ class DepartmentController extends Controller
 
 
     {
-       
+
         $department=Department::find($id);
 
-        
-                    
+
+
         $department->update([
             'department_name'=>$request->department_name,
              'department_code'=>$request->department_code,
-            
-            
+
+
         ]);
         return redirect()->back()->with('success','Updates Successfully.');
     }
-    
 
 
-    
+
+
 
 
 

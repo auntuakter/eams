@@ -1,11 +1,11 @@
 @extends('main')
 @section('content')
 
-    
+
 <style>
     .box {
   width: 600px;
-  height: 250px;  
+  height: 250px;
   padding: 100px;
   border: 5px solid black;
   background-color:#c6c4cd;
@@ -19,12 +19,12 @@
 <label for="employees">Employee:</label>
   <select name="employees" id="employees">
     @foreach($employees as $employee)
-    <option value={{$employee->id}}>{{$employee->name}}</option>   
+    <option value={{$employee->id}}>{{$employee->name}}</option>
     <!-- <option value={{$employee->id}}>{{$employee->created_at}}</option>    -->
-    @endforeach 
+    @endforeach
   </select>
 
-  <!-- <label for="months">Month:</label>
+   <label for="months">Month:</label>
   <select name="months" id="months">
     <option value="january">January</option>
     <option value="february">February</option>
@@ -39,10 +39,10 @@
     <option value="november">November</option>
     <option value="december">December/option>
 
-    
-  </select> -->
 
-<!--    
+  </select> 
+
+<!--
 <label for="years">Year:</label>
   <select name="years" id="years">
     <option value="2010">2010</option>
@@ -57,31 +57,31 @@
     <option value="2010">2019</option>
     <option value="2010">2020</option>
     <option value="2010">2021</option>
-    <option value="2010">2022</option> 
-    
+    <option value="2010">2022</option>
 
-   
-    
+
+
+
   </select>  -->
   <br>
 
 <button class="btn btn-success" type="submit">Submit</button>
- 
+
 </form>
 
-  
+
 
 
 
 @if( $attendances != null)
 
-@php 
+@php
 
 $last_day_this_month  = date('t');
 @endphp
 
 
-  
+
 <!-- print -->
 <div id="ToPrint">
 <!-- print -->
@@ -92,7 +92,7 @@ $last_day_this_month  = date('t');
     <thead>
         <tr>
             <th scope="col">#</th>
-        
+
             <th scope="col">Date</th>
             <th scope="col">Check In </th>
             <th scope="col">Check Out</th>
@@ -101,27 +101,27 @@ $last_day_this_month  = date('t');
     </thead>
 
     <tbody>
-       @php 
+       @php
        $total_present=0;
        $total_leave=0;
        @endphp
     @for($i=1; $i<=$last_day_this_month; $i++)
 
-    @php 
-   
+    @php
+
     $date=$i.'-'.date('m-Y');
    $is_matched=false;
-   
+
     @endphp
         <tr>
 
         <th scope ="row">{{$i}}</th>
         <th scope ="row">{{$date}}</th>
         @foreach($attendances as $data)
-        
-       
+
+
                 @if($i==date('d',strtotime($data->date)))
-           
+
                 @php
                 $is_matched=true;
                 if($data->status!='leave')
@@ -133,15 +133,15 @@ $last_day_this_month  = date('t');
                 {
                   $total_leave++;
                 }
-                
-             
-                
+
+
+
                 @endphp
 
-                <td>{{$data->check_in}}</td> 
+                <td>{{$data->check_in}}</td>
                 <!-- <td>{{date('h:i:s A',strtotime($data->check_in))}}</td> -->
-               
-                 <td>{{$data->check_out}}</td> 
+
+                 <td>{{$data->check_out}}</td>
                 <td>{{$data->status}}</td>
                 @endif
         @endforeach
@@ -154,7 +154,7 @@ $last_day_this_month  = date('t');
         @endif
 
         </tr>
-    
+
     @endfor
 
     </tbody>
@@ -175,7 +175,7 @@ $last_day_this_month  = date('t');
          <button class="btn btn-primary" type="submit" onClick="PrintDiv('ToPrint');" value="Print">Print</button>
 
             <script language="javascript">
-                 function PrintDiv(divName) 
+                 function PrintDiv(divName)
                  {
                  var printContents = document.getElementById(divName).innerHTML;
                  var originalContents = document.body.innerHTML;

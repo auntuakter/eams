@@ -95,7 +95,7 @@
                 <div class="card-box bg-green">
                     <div class="inner">
                         <h3> {{$department}} </h3>
-                        <p> Number of Departmetn</p>
+                        <p> Number of Department</p>
                     </div>
                     <div class="icon">
                     <i class="fa fa-user-plus" aria-hidden="true"></i>

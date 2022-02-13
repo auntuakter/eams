@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PDFController;
 
 
 /*
@@ -109,11 +110,18 @@ Route::post('/leave_type/store',[Leave_typeController::class,'store'])->name('le
 
 
 Route::get('/movement',[MovementController::class,'movement'])->name('movement');
+Route::get('/movement_add',[MovementController::class,'movement_add'])->name('movement_add');
+Route::post('/movement/store',[MovementController::class,'store'])->name('movement.store');
+Route::get('/movement/delete{student_id}',[MovementController::class,'delete'])->name('student.delete');
+Route::get('/movement/edit{student_id}',[MovementController::class,'edit'])->name('student.edit');
+Route::put('/movement/update{student_id}',[MovementController::class,'update'])->name('student.update');
+
+
 Route::get('/report',[ReportController::class,'report'])->name('report');
 
 
 Route::get('/sallary',[SallaryController::class,'sallary'])->name('sallary');
-Route::get('/sallary_add',[SallaryController::class,'sallary_add'])->name('sallary_add');
+ Route::get('/sallary_add',[SallaryController::class,'sallary_add'])->name('sallary_add');
 Route::post('/sallary/store',[SallaryController::class,'store'])->name('sallary.store');
 
 
@@ -125,6 +133,10 @@ Route::put('/profile/update/{profile_id}',[ProfileController::class,'update'])->
 
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
 Route::get('/notification_seen',[LeaveController::class,'notification'])->name('notification_seen');
+
+
+
+Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
 
 
 });

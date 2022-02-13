@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Nav items -->
           <ul class="navbar-nav">
-            @if(auth()->user()->role=='admin')
+
             <li class="nav-item">
               <a class="nav-link active" href="{{route('dashboard')}}">
                 <i class="ni ni-tv-2 text-primary"></i>
@@ -23,6 +23,7 @@
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
+            @if(auth()->user()->role=='admin')
 
             <li class="nav-item">
               <a class="nav-link" href="{{route('department')}}">
@@ -61,7 +62,7 @@
                 <i class="material-icons">person_pin</i>
 
                 <span class="nav-link-text">MY Profile</span>
-                
+
               </a>
             </li>
             @endif
@@ -84,7 +85,7 @@
             </li>
 
             @endif
-            
+
             <li class="nav-item">
               <a class="nav-link" href="{{route('leave_type')}}">
                 <i class="ni ni-pin-3 text-primary"></i>
@@ -106,12 +107,14 @@
             @if(auth()->user()->role=='admin')
 
 
-            <!-- <li class="nav-item">
+             <li class="nav-item">
               <a class="nav-link" href="{{route('movement')}}">
                 <i class="ni ni-pin-3 text-primary"></i>
-                <span class="nav-link-text">Movement</span>
+                <i class="material-icons">person_pin</i>
+
+                <span class="nav-link-text">Student</span>
               </a>
-            </li> -->
+            </li>
             @endif
 
             <li class="nav-item">
@@ -121,11 +124,11 @@
                 <span class="nav-link-text">Notice</span>
               </a>
             </li>
-          
-<!--           
+
+
             @if(auth()->user()->role=='admin')
 
- 
+
             <li class="nav-item">
               <a class="nav-link" href="{{route('report')}}">
                 <i class="ni ni-circle-08 text-pink"></i>
@@ -133,25 +136,25 @@
                 <span class="nav-link-text">Report</span>
               </a>
             </li>
+            @endif
 
-            
-             <li class="nav-item">
+             <!-- <li class="nav-item">
               <a class="nav-link" href="{{route('sallary')}}">
                 <i class="ni ni-circle-08 text-pink"></i>
                 <span class="nav-link-text">Sallary</span>
               </a>
             </li>
-            @endif -->
+             -->
 
-            
-            
+
+
           </ul>
           <!-- Divider -->
           <hr class="my-3">
           <!-- Heading -->
-          
+
           <!-- Navigation -->
-          
+
         </div>
       </div>
     </div>
